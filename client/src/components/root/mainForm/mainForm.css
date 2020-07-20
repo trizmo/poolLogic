@@ -1,0 +1,13 @@
+.mainForm-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.mainForm-mainContainer {
+  width: 800px
+}
+
+.mainForm-customerInfo-address2 {
+  display: flex;
+  justify-content: space-between;
+}
