@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 // CSS 
 import "./mainForm.css"
+
+// COMPONENTS
+import Totals from '../totals/Totals';
 
 
 export default class MainForm extends Component {
@@ -464,6 +467,13 @@ export default class MainForm extends Component {
           </div>
 
 
+
+
+        </div>
+        <div className='totals-wrapper'>
+          <div className='totals-container'>
+            <Totals allData={this.state} />
+          </div>
         </div>
       </div>
     )
