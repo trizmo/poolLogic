@@ -22,7 +22,7 @@ export default class MainForm extends Component {
       engineering: false,
       excavationMainLocation: "63access",
       excavationMainSquareFoot: undefined,
-      excavationZone: "riversideCounty",
+      excavationZone: undefined,
       excavationDemo: undefined,
       excavationSod: undefined,
       excavationConcreteDemo: undefined,
@@ -30,6 +30,8 @@ export default class MainForm extends Component {
       excavationDeepRamp: false,
       excavationRockArea: false,
       excavationDayOfDig: undefined,
+      excavationSteelLocation: undefined,
+      excavationSteelSquareFoot: undefined,
       plumbingType: "poolOnly",
       plumbingLength: undefined,
       gasLength: undefined,
@@ -70,34 +72,34 @@ export default class MainForm extends Component {
   handleInputChange(event) {
     const name = event.target.name
     const value = event.target.value
-    console.log(name)
-    console.log(event.target.value)
+    // console.log(name)
+    // console.log(event.target.value)
 
     this.setState({
       [name]: value
-    }, () => console.log(this.state))
+    })
 
   }
 
   handleCheckboxChange(event) {
     const name = event.target.name
     const checked = event.target.checked
-    console.log(name, checked)
+    // console.log(name, checked)
 
     this.setState({
       [name]: checked
-    }, () => console.log(this.state))
+    })
   }
 
   handleDropdownChange(event) {
     const name = event.target.name
     const value = event.target.value
-    console.log(event.target.value)
-    console.log(event.target.name)
+    // console.log(event.target.value)
+    // console.log(event.target.name)
 
     this.setState({
       [name]: value
-    }, () => console.log(this.state))
+    })
   }
 
   render() {
@@ -175,6 +177,7 @@ export default class MainForm extends Component {
                 <Label for="excavationZone">
                   Excavation Zone
                 <Input type="select" name="excavationZone" id="excavationZone" onChange={this.handleDropdownChange}>
+                    <option>Select Zone</option>
                     <option value={"riversideCounty"}>Riverside County</option>
                     <option value={"inlandEmpire"}>Inland Empire</option>
                     <option value={"west605"}>West of 605</option>
@@ -228,6 +231,7 @@ export default class MainForm extends Component {
                 <Label for="excavationSteelLocation">
                   Steel
                 <Input type="select" name="excavationSteelLocation" id="excavationSteelLocation" onChange={this.handleDropdownChange}>
+                    <option>Select Location</option>
                     <option value={"riversideCounty"}>Riverside County</option>
                     <option value={"LACounty"}>Los Angeles County</option>
                     <option value={"SBCounty"}>San Bernardino County</option>
