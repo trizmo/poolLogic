@@ -36,9 +36,20 @@ export default class Totals extends Component {
       plumbElectTotal: 0,
 
       // SHOTCRETE TOTAL
+      deputyInspection: 0,
       shotcreteTotal: 0,
 
       // MASONRY TOTAL
+      tileCoping: 0,
+      doubleBullnose: 0,
+      deckingSquareFoot: 0,
+      masonry1TypeSquareFoot: 0,
+      masonryCleanup: 0,
+      plasterLength: 0,
+      bagsOfGlass: 0,
+      bagsOfAbalone: 0,
+      plasterStartUp: 0,
+      plasterMastic: 0,
       masonryTotal: 0,
 
       // ADDITIONAL TOTAL
@@ -224,6 +235,146 @@ export default class Totals extends Component {
       update.sawCut = 0
     }
 
+    // SHOTCRETE
+    if (props.allData.deputyInspection) {
+      update.deputyInspection = 390
+    }
+    else {
+      update.deputyInspection = 0
+    }
+
+    // MASONRY
+    if (props.allData.tileCoping) {
+      update.tileCoping = 40 * props.allData.tileCoping
+    }
+    else {
+      update.tileCoping = 0
+    }
+    if (props.allData.doubleBullnose) {
+      update.doubleBullnose = 10 * props.allData.tileCoping
+    }
+    else {
+      update.doubleBullnose = 0
+    }
+
+    if (props.allData.deckingType && props.allData.deckingSquareFoot) {
+      if (props.allData.deckingType === "ngBroomFinish") {
+        update.deckingSquareFoot = 3300 + (6 * props.allData.deckingSquareFoot)
+      }
+      else if (props.allData.deckingType === "color1p") {
+        update.deckingSquareFoot = 3300 + (1 * props.allData.deckingSquareFoot)
+      }
+      else if (props.allData.deckingType === "acidWash") {
+        update.deckingSquareFoot = 3300 + (1 * props.allData.deckingSquareFoot)
+      }
+      else if (props.allData.deckingType === "stampSeamless") {
+        update.deckingSquareFoot = 3300 + (1 * props.allData.deckingSquareFoot)
+      }
+      else if (props.allData.deckingType === "stampPattern") {
+        update.deckingSquareFoot = 3300 + (2 * props.allData.deckingSquareFoot)
+      }
+      else {
+        update.deckingSquareFoot = 0
+      }
+    }
+
+    if (props.allData.masonry1Type && props.allData.masonry1TypeSquareFoot) {
+      if (props.allData.masonry1Type === "rbbStone") {
+        update.masonry1TypeSquareFoot = 25 * props.allData.masonry1TypeSquareFoot
+      }
+      else if (props.allData.masonry1Type === "retainingWallCMUBlock") {
+        update.masonry1TypeSquareFoot = 50 * props.allData.masonry1TypeSquareFoot
+      }
+      else if (props.allData.masonry1Type === "stuccoFin") {
+        update.masonry1TypeSquareFoot = 15 * props.allData.masonry1TypeSquareFoot
+      }
+      else if (props.allData.masonry1Type === "smoothStucco") {
+        update.masonry1TypeSquareFoot = 25 * props.allData.masonry1TypeSquareFoot
+      }
+      else if (props.allData.masonry1Type === "standardPavers") {
+        update.masonry1TypeSquareFoot = 12 * props.allData.masonry1TypeSquareFoot
+      }
+      else if (props.allData.masonry1Type === "travertine") {
+        update.masonry1TypeSquareFoot = 22 * props.allData.masonry1TypeSquareFoot
+      }
+      else if (props.allData.masonry1Type === "concretePadTurf") {
+        update.masonry1TypeSquareFoot = 15 * props.allData.masonry1TypeSquareFoot
+      }
+      else if (props.allData.masonry1Type === "concreteStepPad") {
+        update.masonry1TypeSquareFoot = 8 * props.allData.masonry1TypeSquareFoot
+      }
+      else if (props.allData.masonry1Type === "trexLPE") {
+        update.masonry1TypeSquareFoot = 42 * props.allData.masonry1TypeSquareFoot
+      }
+      else {
+        update.masonry1TypeSquareFoot = 0
+      }
+    }
+
+    if (props.allData.masonryCleanup) {
+      update.masonryCleanup = 1000
+    }
+    else {
+      update.masonryCleanup = 0
+    }
+
+
+    if (props.allData.plasterType && props.allData.plasterLength) {
+      if (props.allData.plasterType === "white") {
+        update.plasterLength = 24 * props.allData.plasterLength
+      }
+      else if (props.allData.plasterType === "miniPebble") {
+        update.plasterLength = 45 * props.allData.plasterLength
+      }
+      else if (props.allData.plasterType === "microPebble") {
+        update.plasterLength = 57 * props.allData.plasterLength
+      }
+      else if (props.allData.plasterType === "microFusion") {
+        update.plasterLength = 67 * props.allData.plasterLength
+      }
+      else if (props.allData.plasterType === "polishScapes") {
+        update.plasterLength = 110 * props.allData.plasterLength
+      }
+      else {
+        update.plasterLength = 0
+      }
+    }
+
+
+    if (props.allData.bagsOfGlass) {
+      update.bagsOfGlass = 350 * props.allData.bagsOfGlass
+    }
+    else {
+      update.bagsOfGlass = 0
+    }
+
+    if (props.allData.bagsOfAbalone) {
+      update.bagsOfAbalone = 350 * props.allData.bagsOfAbalone
+    }
+    else {
+      update.bagsOfAbalone = 0
+    }
+
+    if (props.allData.bagsOfAbalone) {
+      update.bagsOfAbalone = 350 * props.allData.bagsOfAbalone
+    }
+    else {
+      update.bagsOfAbalone = 0
+    }
+
+    if (props.allData.plasterStartUp) {
+      update.plasterStartUp = 375
+    }
+    else {
+      update.plasterStartUp = 0
+    }
+
+    if (props.allData.plasterMastic) {
+      update.plasterMastic = 250
+    }
+    else {
+      update.plasterMastic = 0
+    }
 
 
 
@@ -256,8 +407,26 @@ export default class Totals extends Component {
       })
     }
 
+    // SHOTCRETE
+    let shotcrete = this.state.deputyInspection
+    if (shotcrete !== this.state.shotcreteTotal) {
+      this.setState({
+        shotcreteTotal: shotcrete
+      })
+    }
+
+    // MASONRY
+    let masonry = this.state.tileCoping + this.state.doubleBullnose + this.state.deckingSquareFoot + this.state.masonry1TypeSquareFoot + this.state.masonryCleanup + this.state.bagsOfGlass + this.state.bagsOfAbalone + this.state.plasterStartUp + this.state.plasterMastic
+    if (masonry !== this.state.masonryTotal) {
+      this.setState({
+        masonryTotal: masonry
+      })
+    }
+
+    //ADDITIONS
+
     // GRAND TOTAL
-    let grand = this.state.generalTotal + this.state.excavationTotal + this.state.plumbElectTotal
+    let grand = this.state.generalTotal + this.state.excavationTotal + this.state.plumbElectTotal + this.state.shotcreteTotal + this.state.masonryTotal + this.state.additionsTotal
     if (grand !== this.state.grandTotal) {
       this.setState({
         grandTotal: grand
