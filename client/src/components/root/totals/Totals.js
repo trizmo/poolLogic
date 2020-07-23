@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Button } from 'reactstrap'
+import axios from 'axios'
 
 // CSS
 import './totals.css'
@@ -8,6 +10,7 @@ export default class Totals extends Component {
     super(props);
     this.state = {
       // GENERAL
+      clientName: undefined,
       plans: 0,
       engineering: 0,
       generalTotal: 0,
@@ -53,19 +56,46 @@ export default class Totals extends Component {
       masonryTotal: 0,
 
       // ADDITIONAL TOTAL
+      manualIgnitionFireBowl: 0,
+      electronicIgnitionFireBowl: 0,
+      sheerDecent: 0,
+      sheerDecentPumps: 0,
+      barbecues: 0,
       additionsTotal: 0,
+
+      // GRAND TOTAL
       grandTotal: 0,
     };
-    this.calculateGeneralTotals = this.calculateGeneralTotals.bind(this)
+    this.handleSubmitForm = this.handleSubmitForm.bind(this)
+    // this.calculateGeneralTotals = this.calculateGeneralTotals.bind(this)
   }
 
 
   static getDerivedStateFromProps(props, state) {
-    console.log("getDerivedStateFromProps: ", props.allData.engineering)
+    // console.log("getDerivedStateFromProps: ", props.allData.engineering)
     let update = {}
 
 
     // GENERAL
+    if (props.allData.clientName) {
+      update.clientName = props.allData.clientName
+    }
+    if (props.allData.address1) {
+      update.address1 = props.allData.address1
+    }
+    if (props.allData.city) {
+      update.city = props.allData.city
+    }
+    if (props.allData.state) {
+      update.state = props.allData.state
+    }
+    if (props.allData.zipCode) {
+      update.zipCode = props.allData.zipCode
+    }
+    if (props.allData.projectManager) {
+      update.projectManager = props.allData.projectManager
+    }
+
     if (props.allData.plans) {
       update.plans = 400
     }
@@ -83,15 +113,19 @@ export default class Totals extends Component {
     // EXCAVATION
     if (props.allData.excavationZone === "riversideCounty") {
       update.excavationZone = 1000
+      update.excavationZone = "riversideCounty"
     }
     else if (props.allData.excavationZone === "inlandEmpire") {
       update.excavationZone = 1600
+      update.excavationZone = "inlandEmpire"
     }
     else if (props.allData.excavationZone === "west605") {
       update.excavationZone = 2000
+      update.excavationZone = "west605"
     }
     else if (props.allData.excavationZone === "westLA") {
       update.excavationZone = 2500
+      update.excavationZone = "westLA"
     }
 
     if (props.allData.excavationDemo) {
@@ -146,9 +180,11 @@ export default class Totals extends Component {
     if (props.allData.excavationSteelLocation && props.allData.excavationSteelSquareFoot) {
       if (props.allData.excavationSteelLocation === "riversideCounty" || props.allData.excavationSteelLocation === "LACounty" || props.allData.excavationSteelLocation === "SBCounty" || props.allData.excavationSteelLocation === "OrangeCounty") {
         update.excavationSteelSquareFoot = 20 * props.allData.excavationSteelSquareFoot
+        update.excavationSteelLocation = "riversideCounty, SBCounty, OrangeCounty"
       }
       else if (props.allData.excavationSteelLocation === "LACity") {
         update.excavationSteelSquareFoot = 25 * props.allData.excavationSteelSquareFoot
+        update.excavationSteelLocation = "LACity"
       }
       else {
         update.excavationSteelSquareFoot = 0
@@ -159,12 +195,15 @@ export default class Totals extends Component {
     if (props.allData.plumbingType && props.allData.plumbingLength) {
       if (props.allData.plumbingType === "poolOnly") {
         update.plumbingLength = 3000 + (30 * props.allData.plumbingLength)
+        update.plumbingType = "poolOnly"
       }
       else if (props.allData.plumbingType === "poolAndSpa") {
         update.plumbingLength = 4000 + (30 * props.allData.plumbingLength)
+        update.plumbingType = "poolAndSpa"
       }
       else if (props.allData.plumbingType === "PoolAndSpaRemodel") {
         update.plumbingLength = 5000 + (0 * props.allData.plumbingLength)
+        update.plumbingType = "PoolAndSpaRemodel"
       }
       else {
         update.plumbingLength = 0
@@ -260,18 +299,27 @@ export default class Totals extends Component {
     if (props.allData.deckingType && props.allData.deckingSquareFoot) {
       if (props.allData.deckingType === "ngBroomFinish") {
         update.deckingSquareFoot = 3300 + (6 * props.allData.deckingSquareFoot)
+        update.deckingType = "ngBroomFinish"
       }
       else if (props.allData.deckingType === "color1p") {
         update.deckingSquareFoot = 3300 + (1 * props.allData.deckingSquareFoot)
+        update.deckingType = "color1p"
+
       }
       else if (props.allData.deckingType === "acidWash") {
         update.deckingSquareFoot = 3300 + (1 * props.allData.deckingSquareFoot)
+        update.deckingType = "acidWash"
+
       }
       else if (props.allData.deckingType === "stampSeamless") {
         update.deckingSquareFoot = 3300 + (1 * props.allData.deckingSquareFoot)
+        update.deckingType = "stampSeamless"
+
       }
       else if (props.allData.deckingType === "stampPattern") {
         update.deckingSquareFoot = 3300 + (2 * props.allData.deckingSquareFoot)
+        update.deckingType = "stampPattern"
+
       }
       else {
         update.deckingSquareFoot = 0
@@ -281,30 +329,39 @@ export default class Totals extends Component {
     if (props.allData.masonry1Type && props.allData.masonry1TypeSquareFoot) {
       if (props.allData.masonry1Type === "rbbStone") {
         update.masonry1TypeSquareFoot = 25 * props.allData.masonry1TypeSquareFoot
+        update.masonry1Type = "rbbStone"
       }
       else if (props.allData.masonry1Type === "retainingWallCMUBlock") {
         update.masonry1TypeSquareFoot = 50 * props.allData.masonry1TypeSquareFoot
+        update.masonry1Type = "retainingWallCMUBlock"
       }
       else if (props.allData.masonry1Type === "stuccoFin") {
         update.masonry1TypeSquareFoot = 15 * props.allData.masonry1TypeSquareFoot
+        update.masonry1Type = "stuccoFin"
       }
       else if (props.allData.masonry1Type === "smoothStucco") {
         update.masonry1TypeSquareFoot = 25 * props.allData.masonry1TypeSquareFoot
+        update.masonry1Type = "smoothStucco"
       }
       else if (props.allData.masonry1Type === "standardPavers") {
         update.masonry1TypeSquareFoot = 12 * props.allData.masonry1TypeSquareFoot
+        update.masonry1Type = "standardPavers"
       }
       else if (props.allData.masonry1Type === "travertine") {
         update.masonry1TypeSquareFoot = 22 * props.allData.masonry1TypeSquareFoot
+        update.masonry1Type = "travertine"
       }
       else if (props.allData.masonry1Type === "concretePadTurf") {
         update.masonry1TypeSquareFoot = 15 * props.allData.masonry1TypeSquareFoot
+        update.masonry1Type = "concretePadTurf"
       }
       else if (props.allData.masonry1Type === "concreteStepPad") {
         update.masonry1TypeSquareFoot = 8 * props.allData.masonry1TypeSquareFoot
+        update.masonry1Type = "concreteStepPad"
       }
       else if (props.allData.masonry1Type === "trexLPE") {
         update.masonry1TypeSquareFoot = 42 * props.allData.masonry1TypeSquareFoot
+        update.masonry1Type = "trexLPE"
       }
       else {
         update.masonry1TypeSquareFoot = 0
@@ -322,18 +379,27 @@ export default class Totals extends Component {
     if (props.allData.plasterType && props.allData.plasterLength) {
       if (props.allData.plasterType === "white") {
         update.plasterLength = 24 * props.allData.plasterLength
+        update.plasterType = "white"
       }
       else if (props.allData.plasterType === "miniPebble") {
         update.plasterLength = 45 * props.allData.plasterLength
+        update.plasterType = "miniPebble"
+
       }
       else if (props.allData.plasterType === "microPebble") {
         update.plasterLength = 57 * props.allData.plasterLength
+        update.plasterType = "microPebble"
+
       }
       else if (props.allData.plasterType === "microFusion") {
         update.plasterLength = 67 * props.allData.plasterLength
+        update.plasterType = "microFusion"
+
       }
       else if (props.allData.plasterType === "polishScapes") {
         update.plasterLength = 110 * props.allData.plasterLength
+        update.plasterType = "polishScapes"
+
       }
       else {
         update.plasterLength = 0
@@ -376,6 +442,42 @@ export default class Totals extends Component {
       update.plasterMastic = 0
     }
 
+    // ADDITIONS
+    if (props.allData.manualIgnitionFireBowl) {
+      update.manualIgnitionFireBowl = 1000 * props.allData.manualIgnitionFireBowl
+    }
+    else {
+      update.manualIgnitionFireBowl = 0
+    }
+
+    if (props.allData.electronicIgnitionFireBowl) {
+      update.electronicIgnitionFireBowl = 1500 * props.allData.electronicIgnitionFireBowl
+    }
+    else {
+      update.electronicIgnitionFireBowl = 0
+    }
+
+    if (props.allData.sheerDecent) {
+      update.sheerDecent = 1000 * props.allData.sheerDecent
+    }
+    else {
+      update.sheerDecent = 0
+    }
+
+    if (props.allData.sheerDecentPumps) {
+      update.sheerDecentPumps = 1150 * props.allData.sheerDecentPumps
+    }
+    else {
+      update.sheerDecentPumps = 0
+    }
+
+    if (props.allData.barbecues) {
+      update.barbecues = 1000 * props.allData.barbecues
+    }
+    else {
+      update.barbecues = 0
+    }
+
 
 
     return update;
@@ -392,7 +494,7 @@ export default class Totals extends Component {
     }
 
     // EXCAVATION
-    let excavation = this.state.excavationZone + this.state.excavationDemo + this.state.excavationSod + this.state.excavationConcreteDemo + this.state.excavationGrading + this.state.excavationDeepRamp + this.state.excavationRockArea + this.state.excavationDayOfDig + this.state.excavationSteelSquareFoot
+    let excavation = this.state.excavationDemo + this.state.excavationSod + this.state.excavationConcreteDemo + this.state.excavationGrading + this.state.excavationDeepRamp + this.state.excavationRockArea + this.state.excavationDayOfDig + this.state.excavationSteelSquareFoot
     if (excavation !== this.state.excavationTotal) {
       this.setState({
         excavationTotal: excavation
@@ -424,6 +526,12 @@ export default class Totals extends Component {
     }
 
     //ADDITIONS
+    let additions = this.state.manualIgnitionFireBowl + this.state.electronicIgnitionFireBowl + this.state.sheerDecent + this.state.sheerDecentPumps + this.state.barbecues
+    if (additions !== this.state.additionsTotal) {
+      this.setState({
+        additionsTotal: additions
+      })
+    }
 
     // GRAND TOTAL
     let grand = this.state.generalTotal + this.state.excavationTotal + this.state.plumbElectTotal + this.state.shotcreteTotal + this.state.masonryTotal + this.state.additionsTotal
@@ -435,19 +543,31 @@ export default class Totals extends Component {
 
   }
 
+  handleSubmitForm() {
+    console.log("SUBMITTING")
+    const data = this.state
+    console.log(data)
 
-
-  calculateGeneralTotals = () => {
+    axios
+      .post('api/mailer', data)
+      .then(res => console.log("CLIENT POST COMPLETE: ", res))
+      .catch(err => console.log("CLIENT POST ERROR: ", err))
 
   }
 
 
 
+  // calculateGeneralTotals = () => {
+
+  // }
+
+
+
   render(props) {
     // this.calculateGeneralTotals()
-    console.log(this.state)
+    // console.log(this.state)
     return (
-      <div className='totals-wrapper'>
+      <div className='totals-mainWrapper'>
         <div className='totals-container'>
           <p>General: ${this.state.generalTotal}</p>
           <p>Excavation: ${this.state.excavationTotal}</p>
@@ -456,6 +576,9 @@ export default class Totals extends Component {
           <p>Masonry: ${this.state.masonryTotal}</p>
           <p>Additions: ${this.state.additionsTotal}</p>
           <p>Grand Total: ${this.state.grandTotal}</p>
+        </div>
+        <div className=''>
+          <Button outline color="primary" onClick={this.handleSubmitForm}>Submit</Button>
         </div>
       </div>
     )

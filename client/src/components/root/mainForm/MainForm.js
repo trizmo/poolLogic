@@ -119,11 +119,11 @@ export default class MainForm extends Component {
                 <Label for="address1">Address</Label>
                 <Input type="text" name="address1" id="address1" onChange={this.handleInputChange} />
               </FormGroup>
+              <FormGroup>
+                <Label for="city">City</Label>
+                <Input type="text" name="city" id="city" onChange={this.handleInputChange} />
+              </FormGroup>
               <div className='mainForm-customerInfo-address2'>
-                <FormGroup>
-                  <Label for="city">City</Label>
-                  <Input type="text" name="city" id="city" onChange={this.handleInputChange} />
-                </FormGroup>
                 <FormGroup>
                   <Label for="state">State</Label>
                   <Input type="text" name="state" id="state" onChange={this.handleInputChange} />
@@ -413,13 +413,13 @@ export default class MainForm extends Component {
               <FormGroup>
                 <Label for="bagsOfGlass">
                   Bags of Glass
-                  <Input type="input" name="bagsOfGlass" id="bagsOfGlass" placeHolder="Total Bags" onChange={this.handleInputChange} />
+                  <Input type="input" name="bagsOfGlass" id="bagsOfGlass" placeholder="Total Bags" onChange={this.handleInputChange} />
                 </Label>
               </FormGroup>
               <FormGroup>
                 <Label for="bagsOfAbalone">
                   Bags of Abalone
-                  <Input type="input" name="bagsOfAbalone" id="bagsOfAbalone" placeHolder="Total Bags" onChange={this.handleInputChange} />
+                  <Input type="input" name="bagsOfAbalone" id="bagsOfAbalone" placeholder="Total Bags" onChange={this.handleInputChange} />
                 </Label>
               </FormGroup>
               <FormGroup>
