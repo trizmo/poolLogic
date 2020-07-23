@@ -10,7 +10,7 @@ app.use(express.json()) // Body parsing
 // app.enable("trust proxy")
 
 // Routing Config
-// require('./routes/routes')(app);
+require('./routes/routes')(app);
 
 // Redirects user to https: NOT BEING USED
 // app.use((req, res, next) => {
