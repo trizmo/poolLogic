@@ -17,7 +17,13 @@ export default class MainForm extends Component {
       city: undefined,
       state: undefined,
       zipCode: undefined,
-      projectManager: undefined,
+      poolLength: undefined,
+      poolWidth: undefined,
+      poolAveDepth: undefined,
+      spaLength: undefined,
+      spaWidth: undefined,
+      spaAveDepth: undefined,
+      projectManager: false,
       plans: false,
       engineering: false,
       excavationMainLocation: undefined,
@@ -51,6 +57,8 @@ export default class MainForm extends Component {
       deckingType: undefined,
       deckingSquareFoot: undefined,
       masonry1Type: undefined,
+      masonryRetainingWall: undefined,
+      masonryCMUWall: undefined,
       masonryCleanup: false,
       plasterType: undefined,
       plasterLength: undefined,
@@ -136,11 +144,42 @@ export default class MainForm extends Component {
             </Form>
           </div>
 
+
+
           <div className='mainForm-general'>
             <Form>
               <FormGroup>
-                <Label for="projectManager">Project Manager</Label>
-                <Input type="name" name="projectManager" id="projectManager" onChange={this.handleInputChange} />
+                <Label for="poolLength">Pool Length</Label>
+                <Input type="number" name="poolLength" id="poolLength" onChange={this.handleInputChange} />
+              </FormGroup>
+              <FormGroup>
+                <Label for="poolWidth">Pool Width</Label>
+                <Input type="number" name="poolWidth" id="poolWidth" onChange={this.handleInputChange} />
+              </FormGroup>
+              <FormGroup>
+                <Label for="poolAveDepth">Pool Average Depth</Label>
+                <Input type="number" name="poolAveDepth" id="poolAveDepth" onChange={this.handleInputChange} />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="spaLength">Spa Length</Label>
+                <Input type="number" name="spaLength" id="spaLength" onChange={this.handleInputChange} />
+              </FormGroup>
+              <FormGroup>
+                <Label for="spaWidth">Spa Width</Label>
+                <Input type="number" name="spaWidth" id="spaWidth" onChange={this.handleInputChange} />
+              </FormGroup>
+              <FormGroup>
+                <Label for="spaAveDepth">Spa Average Depth</Label>
+                <Input type="number" name="spaAveDepth" id="spaAveDepth" onChange={this.handleInputChange} />
+              </FormGroup>
+
+
+              <FormGroup>
+                <Label for="projectManager">
+                  <Input type="checkbox" name="projectManager" id="projectManager" onChange={this.handleCheckboxChange} />
+                  Project Manager
+                  </Label>
               </FormGroup>
               <FormGroup>
                 <Label for="plans">
@@ -156,6 +195,8 @@ export default class MainForm extends Component {
               </FormGroup>
             </Form>
           </div>
+
+
 
           <div className='mainForm-excavation'>
             <h3>Excavation</h3>
@@ -173,9 +214,9 @@ export default class MainForm extends Component {
                     <option value={"mini-access"}>Mini access 3' 6"</option>
                   </Input>
                   <Input type="text" name="excavationMainSquareFoot" id="excavationMainSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} />
-
                 </Label>
               </FormGroup>
+
               <FormGroup>
                 <Label for="excavationZone">
                   Excavation Zone
@@ -248,6 +289,8 @@ export default class MainForm extends Component {
 
             </Form>
           </div>
+
+
           <div className='mainForm-plumbingElectrical'>
             <h3>Plumbing and Electrical</h3>
             <Form>
@@ -301,6 +344,8 @@ export default class MainForm extends Component {
               </FormGroup>
             </Form>
           </div>
+
+
           <div className='mainForm-shotcrete'>
             <h3>ShotCrete</h3>
             <Form>
@@ -320,26 +365,10 @@ export default class MainForm extends Component {
                   </Input>
                 </Label>
               </FormGroup>
-              <FormGroup>
-                <Label for="shotcretePerimeter">
-                  Shotcrete - Perimeter
-                  <Input type="text" name="shotcretePerimeter" id="shotcretePerimeter" placeholder="" onChange={this.handleInputChange} />
-                </Label>
-              </FormGroup>
-              <FormGroup>
-                <Label for="shotcreteAveDepth">
-                  Shotcrete - Average Depth
-                  <Input type="text" name="shotcreteAveDepth" id="shotcreteAveDepth" placeholder="" onChange={this.handleInputChange} />
-                </Label>
-              </FormGroup>
-              <FormGroup>
-                <Label for="shotcreteSurfaceArea">
-                  Shotcrete - Surface Area
-                  <Input type="text" name="shotcreteSurfaceArea" id="shotcreteSurfaceArea" placeholder="" onChange={this.handleInputChange} />
-                </Label>
-              </FormGroup>
             </Form>
           </div>
+
+
           <div className=''>
             <h3>Masonry</h3>
             <Form>
@@ -366,10 +395,11 @@ export default class MainForm extends Component {
                     <option value={"stampSeamless"}>Seamless Stamp</option>
                     <option value={"stampPattern"}>Pattern Stamp</option>
                   </Input>
-                  <Input type="text" name="deckingSquareFoot" id="deckingSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} />
+                  <Input type="number" name="deckingSquareFoot" id="deckingSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} />
 
                 </Label>
               </FormGroup>
+
               <FormGroup>
                 <Label for="masonry1">
                   Masonry1
@@ -386,9 +416,23 @@ export default class MainForm extends Component {
                     <option value={"trexLPE"}>Trex or LPE</option>
                   </Input>
                   <Input type="text" name="masonry1TypeSquareFoot" id="masonry1TypeSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} />
-
                 </Label>
               </FormGroup>
+
+              <FormGroup>
+                <Label for="masonryRetainingWall">
+                  Retaining Wall
+                  <Input type="text" name="masonryRetainingWall" id="masonryRetainingWall" placeholder="Square Footage" onChange={this.handleInputChange} />
+                </Label>
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="masonryCMUWall">
+                  CMU Wall
+                  <Input type="text" name="masonryCMUWall" id="masonryCMUWall" placeholder="Linear Feet" onChange={this.handleInputChange} />
+                </Label>
+              </FormGroup>
+
               <FormGroup>
                 <Label for="masonryCleanup">
                   <Input type="checkbox" name="masonryCleanup" id="masonryCleanup" onChange={this.handleCheckboxChange} />
