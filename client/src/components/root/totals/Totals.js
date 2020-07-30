@@ -810,8 +810,8 @@ export default class Totals extends Component {
       .then(res => {
         console.log("CLIENT POST COMPLETE: ", res)
         if (res.data.success) {
-          console.log("redirect")
-          // window.location = "/success"
+          // console.log("redirect")
+          window.location = "/success"
         }
       })
       .catch(err => console.log("CLIENT POST ERROR: ", err))
@@ -830,8 +830,8 @@ export default class Totals extends Component {
     // this.calculateGeneralTotals()
     console.log(this.state)
     return (
-      <div className='totals-mainWrapper'>
-        <div className='totals-container'>
+      <div className='totals-container'>
+        <div className=''>
           <p>General: ${this.state.generalTotal.toFixed(2)}</p>
           <p>Excavation: ${parseFloat(this.state.excavationTotal).toFixed(2)}</p>
           <p>Plumbing and Electrical: ${parseFloat(this.state.plumbElectTotal).toFixed(2)}</p>
