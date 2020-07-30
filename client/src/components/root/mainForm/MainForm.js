@@ -199,59 +199,59 @@ export default class MainForm extends Component {
 
 
           <div className='mainForm-excavation'>
-            <h3>Excavation</h3>
+            {/* <h3>Excavation</h3> */}
 
             <Form>
               <FormGroup>
                 <Label for="excavationMainLocation">
                   Excavation Location / Type
-                <Input type="select" name="excavationMainLocation" id="excavationMainLocation" onChange={this.handleDropdownChange}>
-                    <option>Select Location / Type</option>
-                    <option value={"63access"}>6' 3" access</option>
-                    <option value={"west605"}>West Of 605 (Base)</option>
-                    <option value={"west405"}>West of 405 (Base)</option>
-                    <option value={"mid-size"}>Mid-size 5' 3"</option>
-                    <option value={"mini-access"}>Mini access 3' 6"</option>
-                  </Input>
-                  <Input type="text" name="excavationMainSquareFoot" id="excavationMainSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="select" name="excavationMainLocation" id="excavationMainLocation" onChange={this.handleDropdownChange}>
+                  <option>Select Location / Type</option>
+                  <option value={"63access"}>6' 3" access</option>
+                  <option value={"west605"}>West Of 605 (Base)</option>
+                  <option value={"west405"}>West of 405 (Base)</option>
+                  <option value={"mid-size"}>Mid-size 5' 3"</option>
+                  <option value={"mini-access"}>Mini access 3' 6"</option>
+                </Input>
+                <Input type="text" name="excavationMainSquareFoot" id="excavationMainSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} />
               </FormGroup>
 
               <FormGroup>
                 <Label for="excavationZone">
                   Excavation Zone
-                <Input type="select" name="excavationZone" id="excavationZone" onChange={this.handleDropdownChange}>
-                    <option>Select Zone</option>
-                    <option value={"riversideCounty"}>Riverside County</option>
-                    <option value={"inlandEmpire"}>Inland Empire</option>
-                    <option value={"west605"}>West of 605</option>
-                    <option value={"westLA"}>West of LA City / OC</option>
-                  </Input>
                 </Label>
+                <Input type="select" name="excavationZone" id="excavationZone" onChange={this.handleDropdownChange}>
+                  <option>Select Zone</option>
+                  <option value={"riversideCounty"}>Riverside County</option>
+                  <option value={"inlandEmpire"}>Inland Empire</option>
+                  <option value={"west605"}>West of 605</option>
+                  <option value={"westLA"}>West of LA City / OC</option>
+                </Input>
               </FormGroup>
               <FormGroup>
                 <Label for="excavationDemo">
                   Demo
-                  <Input type="text" name="excavationDemo" id="excavationDemo" placeholder="Square Footage" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="excavationDemo" id="excavationDemo" placeholder="Square Footage" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="excavationSod">
                   Sod / Trash
-                  <Input type="text" name="excavationSod" id="excavationSod" placeholder="Total Loads" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="excavationSod" id="excavationSod" placeholder="Total Loads" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="excavationConcreteDemo">
                   Concrete Demo
-                  <Input type="text" name="excavationConcreteDemo" id="excavationConcreteDemo" placeholder="Total Loads" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="excavationConcreteDemo" id="excavationConcreteDemo" placeholder="Total Loads" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="excavationGrading">
                   Grading
-                  <Input type="text" name="excavationGrading" id="excavationGrading" placeholder="Total Loads" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="excavationGrading" id="excavationGrading" placeholder="Total Loads" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="excavationDeepRamp">
@@ -268,23 +268,23 @@ export default class MainForm extends Component {
               <FormGroup>
                 <Label for="excavationDayOfDig">
                   Day Of Dig - To enlarge Pool
-                  <Input type="text" name="excavationDayOfDig" id="excavationDayOfDig" placeholder="Square Footage" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="excavationDayOfDig" id="excavationDayOfDig" placeholder="Square Footage" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="excavationSteelLocation">
                   Steel
-                <Input type="select" name="excavationSteelLocation" id="excavationSteelLocation" onChange={this.handleDropdownChange}>
-                    <option>Select Location</option>
-                    <option value={"riversideCounty"}>Riverside County</option>
-                    <option value={"LACounty"}>Los Angeles County</option>
-                    <option value={"SBCounty"}>San Bernardino County</option>
-                    <option value={"OrangeCounty"}>Orange County</option>
-                    <option value={"LACity"}>Los Angeles CITY</option>
-                  </Input>
-                  <Input type="text" name="excavationSteelSquareFoot" id="excavationSteelSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} />
-
                 </Label>
+                <Input type="select" name="excavationSteelLocation" id="excavationSteelLocation" onChange={this.handleDropdownChange}>
+                  <option>Select Location</option>
+                  <option value={"riversideCounty"}>Riverside County</option>
+                  <option value={"LACounty"}>Los Angeles County</option>
+                  <option value={"SBCounty"}>San Bernardino County</option>
+                  <option value={"OrangeCounty"}>Orange County</option>
+                  <option value={"LACity"}>Los Angeles CITY</option>
+                </Input>
+                <Input type="text" name="excavationSteelSquareFoot" id="excavationSteelSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} />
+
               </FormGroup>
 
             </Form>
@@ -297,32 +297,32 @@ export default class MainForm extends Component {
               <FormGroup>
                 <Label for="plumbing">
                   Plumbing Type and Linear Feet
-                <Input type="select" name="plumbingType" id="plumbingType" onChange={this.handleDropdownChange}>
-                    <option>Select Type</option>
-                    <option value={"poolOnly"}>Pool Only</option>
-                    <option value={"poolAndSpa"}>Pool and Spa</option>
-                    <option value={"PoolAndSpaRemodel"}>Pool and Spa Remodel</option>
-                  </Input>
-                  <Input type="text" name="plumbingLength" id="plumbingLength" placeholder="Linear Feet" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="select" name="plumbingType" id="plumbingType" onChange={this.handleDropdownChange}>
+                  <option>Select Type</option>
+                  <option value={"poolOnly"}>Pool Only</option>
+                  <option value={"poolAndSpa"}>Pool and Spa</option>
+                  <option value={"PoolAndSpaRemodel"}>Pool and Spa Remodel</option>
+                </Input>
+                <Input type="text" name="plumbingLength" id="plumbingLength" placeholder="Linear Feet" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="gasLength">
                   Gas length
-                  <Input type="text" name="gasLength" id="gasLength" placeholder="Linear Feet" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="gasLength" id="gasLength" placeholder="Linear Feet" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="electricalLength">
                   Electrical Length
-                  <Input type="text" name="electricalLength" id="electricalLength" placeholder="Linear Feet" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="electricalLength" id="electricalLength" placeholder="Linear Feet" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="stubsOutlets">
                   Stubs and Outlets
-                  <Input type="text" name="stubsOutlets" id="stubsOutlets" placeholder="Total Stubs/Outlets" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="stubsOutlets" id="stubsOutlets" placeholder="Total Stubs/Outlets" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="dedicatedSuction">
@@ -358,12 +358,12 @@ export default class MainForm extends Component {
               <FormGroup>
                 <Label for="shotcreteLocation">
                   Shotcrete Location
-                <Input type="select" name="shotcreteLocation" id="shotcreteLocation" onChange={this.handleDropdownChange}>
-                    <option>Select Location</option>
-                    <option value={"riversideCounty/IE"}>Riverside County / Inland Empire</option>
-                    <option value={"losAngeles"}>West of 605 / Los Angeles</option>
-                  </Input>
                 </Label>
+                <Input type="select" name="shotcreteLocation" id="shotcreteLocation" onChange={this.handleDropdownChange}>
+                  <option>Select Location</option>
+                  <option value={"riversideCounty/IE"}>Riverside County / Inland Empire</option>
+                  <option value={"losAngeles"}>West of 605 / Los Angeles</option>
+                </Input>
               </FormGroup>
             </Form>
           </div>
@@ -375,8 +375,8 @@ export default class MainForm extends Component {
               <FormGroup>
                 <Label for="tileCoping">
                   Tile and Coping
-                  <Input type="text" name="tileCoping" id="tileCoping" placeholder="Linear Feet" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="tileCoping" id="tileCoping" placeholder="Linear Feet" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="doubleBullnose">
@@ -387,50 +387,50 @@ export default class MainForm extends Component {
               <FormGroup>
                 <Label for="decking">
                   Decking
-                <Input type="select" name="deckingType" id="deckingType" onChange={this.handleDropdownChange}>
-                    <option>Select Type</option>
-                    <option value={"ngBroomFinish"}>NG Broom Finish</option>
-                    <option value={"color1p"}>Color 1%</option>
-                    <option value={"acidWash"}>Acid Wash or Top Cast</option>
-                    <option value={"stampSeamless"}>Seamless Stamp</option>
-                    <option value={"stampPattern"}>Pattern Stamp</option>
-                  </Input>
-                  <Input type="number" name="deckingSquareFoot" id="deckingSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} />
-
                 </Label>
+                <Input type="select" name="deckingType" id="deckingType" onChange={this.handleDropdownChange}>
+                  <option>Select Type</option>
+                  <option value={"ngBroomFinish"}>NG Broom Finish</option>
+                  <option value={"color1p"}>Color 1%</option>
+                  <option value={"acidWash"}>Acid Wash or Top Cast</option>
+                  <option value={"stampSeamless"}>Seamless Stamp</option>
+                  <option value={"stampPattern"}>Pattern Stamp</option>
+                </Input>
+                <Input type="number" name="deckingSquareFoot" id="deckingSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} />
+
               </FormGroup>
 
               <FormGroup>
                 <Label for="masonry1">
                   Masonry1
-                <Input type="select" name="masonry1Type" id="masonry1Type" onChange={this.handleDropdownChange}>
-                    <option>Select Type</option>
-                    <option value={"rbbStone"}>RBB Stone or Tile</option>
-                    <option value={"retainingWallCMUBlock"}>Retaining Wall CMU Block, No Caps (3' and under)</option>
-                    <option value={"stuccoFin"}>Stucco Finish</option>
-                    <option value={"smoothStucco"}>Smooth Stucco</option>
-                    <option value={"standardPavers"}>Standard Pavers</option>
-                    <option value={"travertine"}>Travertine or Tile Floor or Flagstone with Concrete Base</option>
-                    <option value={"concretePadTurf"}>Concrete Pad and Turf Ribbons</option>
-                    <option value={"concreteStepPad"}>Concrete Stepping Pads</option>
-                    <option value={"trexLPE"}>Trex or LPE</option>
-                  </Input>
-                  <Input type="text" name="masonry1TypeSquareFoot" id="masonry1TypeSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="select" name="masonry1Type" id="masonry1Type" onChange={this.handleDropdownChange}>
+                  <option>Select Type</option>
+                  <option value={"rbbStone"}>RBB Stone or Tile</option>
+                  <option value={"retainingWallCMUBlock"}>Retaining Wall CMU Block, No Caps (3' and under)</option>
+                  <option value={"stuccoFin"}>Stucco Finish</option>
+                  <option value={"smoothStucco"}>Smooth Stucco</option>
+                  <option value={"standardPavers"}>Standard Pavers</option>
+                  <option value={"travertine"}>Travertine or Tile Floor or Flagstone with Concrete Base</option>
+                  <option value={"concretePadTurf"}>Concrete Pad and Turf Ribbons</option>
+                  <option value={"concreteStepPad"}>Concrete Stepping Pads</option>
+                  <option value={"trexLPE"}>Trex or LPE</option>
+                </Input>
+                <Input type="text" name="masonry1TypeSquareFoot" id="masonry1TypeSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} />
               </FormGroup>
 
               <FormGroup>
                 <Label for="masonryRetainingWall">
                   Retaining Wall
-                  <Input type="text" name="masonryRetainingWall" id="masonryRetainingWall" placeholder="Square Footage" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="masonryRetainingWall" id="masonryRetainingWall" placeholder="Square Footage" onChange={this.handleInputChange} />
               </FormGroup>
 
               <FormGroup>
                 <Label for="masonryCMUWall">
                   CMU Wall
-                  <Input type="text" name="masonryCMUWall" id="masonryCMUWall" placeholder="Linear Feet" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="masonryCMUWall" id="masonryCMUWall" placeholder="Linear Feet" onChange={this.handleInputChange} />
               </FormGroup>
 
               <FormGroup>
@@ -442,29 +442,29 @@ export default class MainForm extends Component {
               <FormGroup>
                 <Label for="plaster">
                   Plaster
-                <Input type="select" name="plasterType" id="plasterType" onChange={this.handleDropdownChange}>
-                    <option>Select Type</option>
-                    <option value={"white"}>White</option>
-                    <option value={"miniPebble"}>Mini Pebble (Except White)</option>
-                    <option value={"microPebble"}>Micro Pebble</option>
-                    <option value={"microFusion"}>Micro Fusion</option>
-                    <option value={"polishScapes"}>PolishScapes</option>
-                  </Input>
-                  <Input type="text" name="plasterLength" id="plasterLength" placeholder="Linear Feet" onChange={this.handleInputChange} />
-
                 </Label>
+                <Input type="select" name="plasterType" id="plasterType" onChange={this.handleDropdownChange}>
+                  <option>Select Type</option>
+                  <option value={"white"}>White</option>
+                  <option value={"miniPebble"}>Mini Pebble (Except White)</option>
+                  <option value={"microPebble"}>Micro Pebble</option>
+                  <option value={"microFusion"}>Micro Fusion</option>
+                  <option value={"polishScapes"}>PolishScapes</option>
+                </Input>
+                <Input type="text" name="plasterLength" id="plasterLength" placeholder="Linear Feet" onChange={this.handleInputChange} />
+
               </FormGroup>
               <FormGroup>
                 <Label for="bagsOfGlass">
                   Bags of Glass
-                  <Input type="input" name="bagsOfGlass" id="bagsOfGlass" placeholder="Total Bags" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="input" name="bagsOfGlass" id="bagsOfGlass" placeholder="Total Bags" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="bagsOfAbalone">
                   Bags of Abalone
-                  <Input type="input" name="bagsOfAbalone" id="bagsOfAbalone" placeholder="Total Bags" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="input" name="bagsOfAbalone" id="bagsOfAbalone" placeholder="Total Bags" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="plasterStartUp">
@@ -486,38 +486,38 @@ export default class MainForm extends Component {
               <FormGroup>
                 <Label for="manualIgnitionFireBowl">
                   Firebowl - Manual Ignition
-                  <Input type="text" name="manualIgnitionFireBowl" id="manualIgnitionFireBowl" placeholder="Total Bowls" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="manualIgnitionFireBowl" id="manualIgnitionFireBowl" placeholder="Total Bowls" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="electronicIgnitionFireBowl">
                   Firebowl - Electronic Ignition
-                  <Input type="text" name="electronicIgnitionFireBowl" id="electronicIgnitionFireBowl" placeholder="Total Bowls" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="electronicIgnitionFireBowl" id="electronicIgnitionFireBowl" placeholder="Total Bowls" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="sheerDecent">
                   Sheer Decent
-                  <Input type="text" name="sheerDecent" id="sheerDecent" placeholder="Total Sheer Decents" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="sheerDecent" id="sheerDecent" placeholder="Total Sheer Decents" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="sheerDecentPumps">
                   Sheer Decent - Pumps
-                  <Input type="text" name="sheerDecentPumps" id="sheerDecentPumps" placeholder="Total Pumps" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="sheerDecentPumps" id="sheerDecentPumps" placeholder="Total Pumps" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="sheerDecentRuns">
                   Sheer Decent - Runs
-                  <Input type="text" name="sheerDecentRuns" id="sheerDecentRuns" placeholder="Total Runs" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="sheerDecentRuns" id="sheerDecentRuns" placeholder="Total Runs" onChange={this.handleInputChange} />
               </FormGroup>
               <FormGroup>
                 <Label for="barbecues">
                   Barbecues
-                  <Input type="text" name="barbecues" id="barbecues" placeholder="Linear Feet" onChange={this.handleInputChange} />
                 </Label>
+                <Input type="text" name="barbecues" id="barbecues" placeholder="Linear Feet" onChange={this.handleInputChange} />
               </FormGroup>
 
 
@@ -540,9 +540,7 @@ export default class MainForm extends Component {
 
         </div>
         <div className='totals-wrapper'>
-          <div className='totals-container'>
-            <Totals allData={this.state} />
-          </div>
+          <Totals allData={this.state} />
         </div>
       </div>
     )

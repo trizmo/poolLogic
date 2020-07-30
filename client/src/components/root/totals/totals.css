@@ -1,5 +1,5 @@
-.totals-mainWrapper {
-  width: 100%;
-  padding: 1rem;
-  border-top: 1px #222 solid;
+.totals-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }

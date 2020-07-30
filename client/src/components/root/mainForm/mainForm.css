@@ -10,6 +10,10 @@
   padding: 1rem;
 }
 
+.mainForm-mainContainer h3 {
+  text-align: center;
+}
+
 .form-group {
   padding: 0rem 1rem;
 }
@@ -17,4 +21,16 @@
 .mainForm-customerInfo-address2 {
   display: flex;
   justify-content: space-between;
+}
+
+.mainForm-excavation {
+  display: block;
+  /* flex-direction: column; */
+  /* text-align: center; */
+}
+
+.totals-wrapper {
+  border-top: 1px solid #444;
+  width: 100%;
+  padding: 1rem;
 }
