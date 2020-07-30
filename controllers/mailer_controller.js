@@ -10,7 +10,6 @@ exports.standardMail = (req, res) => {
     service: 'yahoo',
     auth: {
       user: 'trizmocalifornia@yahoo.com',
-      // user: ["bwilson@poollogicdesigns.com", "trizmocalifornia@yahoo.com"],
       pass: "Elijah123!"
     }
 
@@ -18,72 +17,104 @@ exports.standardMail = (req, res) => {
 
   const mailOptions = {
     from: 'trizmocalifornia@yahoo.com',
-    // to: 'tristan.e.perera@gmail.com',
-    to: ["bwilson@poollogicdesigns.com", "tristan.e.perera@gmail.com"],
+    to: 'tristan.e.perera@gmail.com',
+    // to: ["bwilson@poollogicdesigns.com", "tristan.e.perera@gmail.com"],
     subject: 'Pool Logic - Estimate',
-    text: "\n" + "Client Name: " + estimate.clientName +
-      "\n" + "Address1: " + estimate.address1 +
-      "\n" + "City: " + estimate.city +
-      "\n" + "State: " + estimate.state +
-      "\n" + "Zip: " + estimate.zipCode +
-      "\n" + "Project Manager: " + estimate.projectManager +
+    text: "\n" + estimate.clientName +
+      "\n" + estimate.address1 +
+      "\n" + estimate.city + " " + estimate.state + " " + estimate.zipCode +
+      "\n\n" + "Project Manager: " + estimate.projectManager +
       "\n" + "Plans: " + estimate.plans +
       "\n" + "Engineering: " + estimate.engineering +
-      "\n\n\n\n" + "Excavation" +
+      "\n\n" + "Pool Length: " + estimate.poolLength +
+      "\n" + "Pool Width: " + estimate.poolWidth +
+      "\n" + "Pool Ave Depth: " + estimate.poolAveDepth +
+      "\n\n" + "Spa Length: " + estimate.spaLength +
+      "\n" + "Spa Width: " + estimate.spaWidth +
+      "\n" + "Spa Ave Depth: " + estimate.spaAveDepth +
+      "\n\n\n\n" + "=== EXCAVATION ===" +
       "\n" + "Excavation Main Location: " + estimate.excavationMainLocation +
       "\n" + "Excavation Main SquareFoot: " + estimate.excavationMainSquareFoot +
-      "\n" + "Excavation Zone: " + estimate.excavationZone +
-      "\n" + "Excavation Demo: " + estimate.excavationDemo +
-      "\n" + "Excavation Sod: " + estimate.excavationSod +
-      "\n" + "Excavation Concrete Demo: " + estimate.excavationConcreteDemo +
-      "\n" + "Excavation Grading: " + estimate.excavationGrading +
+      "\n" + "Excavation Estimate: $ " + estimate.excavtionEstimate +
+      "\n\n" + "Excavation Zone: " + estimate.excavationZone +
+      "\n\n" + "Excavation Demo: " + estimate.excavationDemo +
+      "\n" + "Excavation Demo Estimate: $ " + estimate.excavationDemoEstimate +
+      "\n\n" + "Excavation Sod: " + estimate.excavationSod +
+      "\n" + "Excavation Sod Estimate: $ " + estimate.excavationSodEstimate +
+      "\n\n" + "Excavation Concrete Demo: " + estimate.excavationConcreteDemo +
+      "\n" + "Excavation Concrete Demo Estimate: $ " + estimate.excavationConcreteDemoEstimate +
+      "\n\n" + "Excavation Grading: " + estimate.excavationGrading +
+      "\n" + "Excavation Grading Estimate: $ " + estimate.excavationGradingEstimate +
       "\n" + "Excavation Deep Ramp: " + estimate.excavationDeepRamp +
       "\n" + "Excavation Rock Area: " + estimate.excavationRockArea +
-      "\n" + "Excavation Day Of Dig: " + estimate.excavationDayOfDig +
-      "\n" + "Excavation Steel Location: " + estimate.excavationSteelLocation +
-      "\n\n\n\n" + "Plumbing and Electrical" +
+      "\n\n" + "Excavation Day Of Dig: " + estimate.excavationDayOfDig +
+      "\n" + "Excavation Day Of Dig Estimate: $ " + estimate.excavationDayOfDigEstimate +
+      "\n\n" + "Excavation Steel Location: " + estimate.excavationSteelLocation +
+      "\n" + "Excavation Steel Squarefoot: " + estimate.excavationSteelSquareFoot +
+      "\n" + "Excavation Steel Squarefoot Estimate: $ " + estimate.excavationSteelSquareFootEstimate +
+      "\n\n\n\n" + "=== PLUMBING AND ELECTRICAL ===" +
       "\n" + "Plumbing Type: " + estimate.plumbingType +
       "\n" + "Plumbing Length: " + estimate.plumbingLength +
-      "\n" + "Gas Length: " + estimate.gasLength +
-      "\n" + "Electrical Length: " + estimate.electricalLength +
-      "\n" + "Stubs Outlets: " + estimate.stubsOutlets +
-      "\n" + "Dedicated Suction: " + estimate.dedicatedSuction +
-      "\n" + "Bonding Wire: " + estimate.bondingWire +
-      "\n" + "Saw Cut: " + estimate.sawCut +
-      "\n\n\n\n" + "Shotcrete" +
-      "\n" + "DeputyInspection: " + estimate.deputyInspection +
+      "\n" + "Plumbing Length Estimate: $ " + estimate.plumbingLengthEstimate +
+      "\n\n" + "Gas Length: " + estimate.gasLength +
+      "\n" + "Gas Length Estimate: $ " + estimate.gasLengthEstimate +
+      "\n\n" + "Electrical Length: " + estimate.electricalLength +
+      "\n" + "Electrical Length Estimate: $ " + estimate.electricalLengthEstimate +
+      "\n\n" + "Stubs Outlets: $ " + estimate.stubsOutlets +
+      "\n" + "Dedicated Suction: $ " + estimate.dedicatedSuction +
+      "\n" + "Bonding Wire: $ " + estimate.bondingWire +
+      "\n" + "Saw Cut: $ " + estimate.sawCut +
+      "\n\n\n\n" + "=== SHOTCRETE ===" +
+      "\n" + "DeputyInspection: $ " + estimate.deputyInspection +
       "\n" + "Shotcrete Location: " + estimate.shotcreteLocation +
-      "\n" + "Shotcrete Perimeter: " + estimate.shotcretePerimeter +
-      "\n" + "Shotcrete Average Depth: " + estimate.shotcreteAveDepth +
-      "\n" + "Shotcrete Surface Area: " + estimate.shotcreteSurfaceArea +
-      "\n" + "Shotcrete Cubic Yards: " + estimate.shotcreteCubicYards +
-      "\n\n\n\n" + "Masonry" +
+      "\n\n" + "Shotcrete CubicYards: " + estimate.shotcreteCubicYards.toFixed(2) +
+      "\n" + "Shotcrete Estimate: $ " + estimate.shotcreteEstimate.toFixed(2) +
+      "\n\n\n\n" + "=== MASONRY ===" +
       "\n" + "Tile Coping: " + estimate.tileCoping +
+      "\n" + "Tile Coping Estimate: $ " + estimate.tileCopingEstimate +
       "\n" + "Double Bullnose: " + estimate.doubleBullnose +
-      "\n" + "Decking Type: " + estimate.deckingType +
+      "\n\n" + "Decking Type: " + estimate.deckingType +
       "\n" + "Decking Square Foot: " + estimate.deckingSquareFoot +
-      "\n" + "Masonry1 Type: " + estimate.masonry1Type +
-      "\n" + "Masonry Cleanup: " + estimate.masonryCleanup +
-      "\n" + "Plaster Type: " + estimate.plasterType +
+      "\n" + "Decking Square Foot Estimate: $ " + estimate.deckingSquareFootEstimate +
+      "\n\n" + "masonryRetainingWall: " + estimate.masonryRetainingWall +
+      "\n" + "masonryRetainingWall Estimate: $ " + estimate.masonryRetainingWallEstimate +
+      "\n\n" + "masonryCMUWall: " + estimate.masonryCMUWall +
+      "\n" + "masonryCMUWall Estimate: $ " + estimate.masonryCMUWallEstimate +
+      "\n\n" + "Masonry1 Type: " + estimate.masonry1Type +
+      "\n" + "Masonry1 Square Footage: " + estimate.masonry1TypeSquareFoot +
+      "\n" + "Masonry1 Square Foot Estimate: $ " + estimate.masonry1TypeSquareFootEstimate +
+      "\n\n" + "Masonry Cleanup: " + estimate.masonryCleanup +
+      "\n\n" + "Plaster Type: " + estimate.plasterType +
       "\n" + "Plaster Length: " + estimate.plasterLength +
-      "\n" + "Bags Of Glass: " + estimate.bagsOfGlass +
+      "\n" + "Plaster Length Estimate: $ " + estimate.plasterLengthEstimate +
+      "\n\n" + "Bags Of Glass: " + estimate.bagsOfGlass +
+      "\n" + "Bags Of Glass Estimate: $ " + estimate.bagsOfGlassEstimate +
       "\n" + "Bags Of Abalone: " + estimate.bagsOfAbalone +
-      "\n" + "Plaster StartUp: " + estimate.plasterStartUp +
+      "\n" + "Bags Of Abalone Estimate: $ " + estimate.bagsOfAbaloneEstimate +
+      "\n\n" + "Plaster StartUp: " + estimate.plasterStartUp +
       "\n" + "Plaster Mastic: " + estimate.plasterMastic +
-      "\n\n\n\n" + "Additions Costs" +
+      "\n\n\n\n" + "=== ADDITIONS ===" +
       "\n" + "Manual Ignition FireBowl: " + estimate.manualIgnitionFireBowl +
+      "\n" + "Manual Ignition FireBowl Estimate: $ " + estimate.manualIgnitionFireBowlEstimate +
       "\n" + "Electronic Ignition Fire Bowl: " + estimate.electronicIgnitionFireBowl +
-      "\n" + "Sheer Decent: " + estimate.sheerDecent +
+      "\n" + "Electronic Ignition Fire Bowl Estimate: $ " + estimate.electronicIgnitionFireBowlEstimate +
+      "\n\n" + "Sheer Decent: " + estimate.sheerDecent +
+      "\n" + "Sheer Decent Estimate: $ " + estimate.sheerDecentEstimate +
       "\n" + "Sheer Decent Pumps: " + estimate.sheerDecentPumps +
+      "\n" + "Sheer Decent PumpsEstimate: $ " + estimate.sheerDecentPumpsEstimate +
       "\n" + "Sheer Decent Runs: " + estimate.sheerDecentRuns +
-      "\n" + "Barbecues: " + estimate.barbecues +
-      "\n\n\n\n" + "Totals" +
-      "\n" + "Excavation Total: " + estimate.excavationTotal +
-      "\n" + "Plumbing and Electrial: " + estimate.plumbElectTotal +
-      "\n" + "Shotcrete: " + estimate.shotcreteTotal +
-      "\n" + "Masonry: " + estimate.masonryTotal +
-      "\n" + "Additions: " + estimate.additionsTotal +
-      "\n" + "Grand Total: " + estimate.grandTotal
+      "\n" + "Sheer Decent RunsEstimate: $ " + estimate.sheerDecentRunsEstimate +
+      "\n\n" + "Barbecues: " + estimate.barbecues +
+      "\n" + "Barbecues Estimate: $ " + estimate.barbecuesEstimate +
+      "\n\n\n\n" + "=== TOTALS ===" +
+      "\n" + "Excavation Total: $ " + estimate.excavationTotal.toFixed(2) +
+      "\n" + "Plumbing and Electrial: $ " + estimate.plumbElectTotal.toFixed(2) +
+      "\n" + "Shotcrete: $ " + estimate.shotcreteTotal.toFixed(2) +
+      "\n" + "Masonry: $ " + estimate.masonryTotal.toFixed(2) +
+      "\n" + "Additions: $ " + estimate.additionsTotal.toFixed(2) +
+      "\n\n" + "Sub Total: $ " + estimate.subtotal.toFixed(2) +
+      "\n" + "Profits: $ " + estimate.profit.toFixed(2) +
+      "\n" + "Grand Total: $ " + estimate.grandTotal.toFixed(2)
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
@@ -91,6 +122,12 @@ exports.standardMail = (req, res) => {
       console.log(error);
     } else {
       console.log('Email sent: ' + info.response);
+
     }
   });
+
+  res.json({
+    success: true
+  })
+
 }
