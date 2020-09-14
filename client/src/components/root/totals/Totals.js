@@ -804,17 +804,22 @@ export default class Totals extends Component {
     console.log("SUBMITTING")
     const data = this.state
     console.log(data)
+    console.log(this.props)
+    // this.props.updatePoolData(data)
+    localStorage.setItem("poolData", JSON.stringify(data))
+    window.location = "/success"
 
-    axios
-      .post('api/mailer', data)
-      .then(res => {
-        console.log("CLIENT POST COMPLETE: ", res)
-        if (res.data.success) {
-          // console.log("redirect")
-          window.location = "/success"
-        }
-      })
-      .catch(err => console.log("CLIENT POST ERROR: ", err))
+
+    // axios
+    //   .post(`api/mailer/review?state=${data}`)
+    //   .then(res => {
+    //     console.log("CLIENT POST COMPLETE: ", res)
+    //     if (res.status === 200) {
+    //       // console.log("redirect")
+    //       window.location = res.data.location
+    //     }
+    //   })
+    //   .catch(err => console.log("CLIENT POST ERROR: ", err))
 
   }
 
@@ -844,6 +849,7 @@ export default class Totals extends Component {
         </div>
         <div className=''>
           <Button outline color="primary" onClick={this.handleSubmitForm}>Submit</Button>
+          {/* <Button outline color="primary" onClick={() => this.props.toggleDisplayReview()}>Submit</Button> */}
         </div>
       </div>
     )

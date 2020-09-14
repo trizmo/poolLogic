@@ -6,12 +6,14 @@ import "./mainForm.css"
 
 // COMPONENTS
 import Totals from '../totals/Totals';
+import Review from '../review/Review';
 
 
 export default class MainForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      displayReview: false,
       clientName: undefined,
       address1: undefined,
       city: undefined,
@@ -76,6 +78,7 @@ export default class MainForm extends Component {
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this)
     this.handleDropdownChange = this.handleDropdownChange.bind(this)
+    this.toggleDisplayReview = this.toggleDisplayReview.bind(this)
 
   }
 
@@ -112,9 +115,18 @@ export default class MainForm extends Component {
     })
   }
 
+  toggleDisplayReview() {
+    this.setState({
+      displayReview: !this.state.displayReview
+    })
+  }
+
   render() {
     return (
       <div className='mainForm-wrapper'>
+        {this.state.displayReview ? (
+          <Review />
+        ) : (null)}
         <div className='mainForm-mainContainer'>
 
           <div className='mainForm-customerInfo'>
@@ -214,7 +226,7 @@ export default class MainForm extends Component {
                   <option value={"mid-size"}>Mid-size 5' 3"</option>
                   <option value={"mini-access"}>Mini access 3' 6"</option>
                 </Input>
-                <Input type="text" name="excavationMainSquareFoot" id="excavationMainSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} />
+                {/* <Input type="text" name="excavationMainSquareFoot" id="excavationMainSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} /> */}
               </FormGroup>
 
               <FormGroup>
@@ -265,12 +277,12 @@ export default class MainForm extends Component {
                   Rock Area - Claremont, Fontana, Upland, Rancho Cucamonga
                 </Label>
               </FormGroup>
-              <FormGroup>
+              {/* <FormGroup>
                 <Label for="excavationDayOfDig">
                   Day Of Dig - To enlarge Pool
                 </Label>
                 <Input type="text" name="excavationDayOfDig" id="excavationDayOfDig" placeholder="Square Footage" onChange={this.handleInputChange} />
-              </FormGroup>
+              </FormGroup> */}
               <FormGroup>
                 <Label for="excavationSteelLocation">
                   Steel
@@ -540,7 +552,7 @@ export default class MainForm extends Component {
 
         </div>
         <div className='totals-wrapper'>
-          <Totals allData={this.state} />
+          <Totals allData={this.state} toggleDisplayReview={this.toggleDisplayReview} poolData={this.props.poolData} updatePoolData={this.props.updatePoolData} />
         </div>
       </div>
     )
