@@ -10,7 +10,7 @@ exports.standardMail = (req, res) => {
     service: 'yahoo',
     auth: {
       user: 'trizmocalifornia@yahoo.com',
-      pass: "Elijah123!"
+      pass: ""
     }
 
   });
