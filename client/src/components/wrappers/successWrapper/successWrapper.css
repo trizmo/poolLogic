@@ -1,7 +1,36 @@
 .successWrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100vh;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.successWrapper-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 5px solid #333;
+}
+
+.successWrapper-header p {
+  margin: 0px;
+}
+
+.successWrapper-header-name {
+  padding: 1.25em;
+}
+
+.successWrapper-header-client {
+  padding: 1.25em;
+}
+
+.successWrapper-information {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.successWrapper-information-right-container p {
+  margin: 0px;
+}
+
+.successWrapper-information-left-container p {
+  margin: 0px;
 }

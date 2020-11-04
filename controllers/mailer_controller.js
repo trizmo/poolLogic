@@ -1,5 +1,13 @@
 const nodemailer = require("nodemailer")
 
+exports.routeToReview = (req, res) => {
+  console.log("RUNNING REROUTE")
+  const estimate = req.body
+  // let estimate = JSON.stringify(body)
+  console.log(req.query)
+  // res.status(200).json({ location: '/success', estimate })
+}
+
 // POST REQUEST
 exports.standardMail = (req, res) => {
   console.log(req.body)
