@@ -24,11 +24,13 @@
 
 .successWrapper-information {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .successWrapper-information-right-container p {
-  margin: 0px;
+  /* margin-: 0px; */
+  padding-right: 1rem;
 }
 
 .successWrapper-information-left-container p {

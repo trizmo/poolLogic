@@ -1,0 +1,15 @@
+Things I experienced or needs to be changed
+
+1->Size is present at success page but not on main form page (what to do)?
+2->Concrete Demo is presenet at main form page but not on success(what to do)?
+3->Excavation Location / Type is presenet at main form page but not on success(what to do)?
+4->Deep-end Ramp is presenet at main form page but not on success(what to do)?
+5-> Rock Area - Claremont, Fontana, Upland, Rancho Cucamonga is presenet at main form page but not on success(what to do)?
+6->Equipment: is present at success page but not on main form page (what to do)?
+7->Stubs and Outlets is presenet at main form page but not on success(what to do)?
+
+8->there is Decking on main form but on success it is Desk (is it ok / these are two other things)?
+
+9->Double Bullnose is presenet at main form page but not on success(what to do)?
+10 -> Masonry1 is presenet at main form page but not on success(what to do)?
+there are some others as well i didn't listed yet please let me know what to do these

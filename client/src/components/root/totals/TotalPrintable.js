@@ -115,6 +115,7 @@ export default class Totals extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
+    console.log("caller joshi");
     // console.log("getDerivedStateFromProps: ", props.allData.engineering)
     let update = {};
 
@@ -718,14 +719,13 @@ export default class Totals extends Component {
     } else {
       update.barbecuesEstimate = 0;
     }
-
     return update;
   }
 
   // UPDATING TOTALS
-  componentDidUpdate(prevProps, prevState) {
+  componentDidMount() {
     // GENERAL
-
+    console.log("ran");
     let general = this.state.plans + this.state.engineering;
     console.log("general", general);
     if (general !== this.state.generalTotal) {
@@ -807,43 +807,57 @@ export default class Totals extends Component {
       this.state.sheerDecentEstimate +
       this.state.sheerDecentPumpsEstimate +
       this.state.barbecuesEstimate;
-    console.log("additions", additions);
     if (additions !== this.state.additionsTotal) {
-      this.setState({
-        additionsTotal: additions,
-      });
+      this.setState(
+        {
+          additionsTotal: additions,
+        },
+        () => {
+          let sub =
+            this.state.generalTotal +
+            this.state.excavationTotal +
+            this.state.plumbElectTotal +
+            this.state.shotcreteTotal +
+            this.state.masonryTotal +
+            this.state.additionsTotal;
+          if (sub !== this.state.subtotal) {
+            this.setState(
+              {
+                subtotal: sub,
+              },
+              () => {
+                let prof = this.state.subtotal * this.state.margin;
+                // console.log(prof, this.state.subtotal, this.state.margin, this.state.profit)
+                if (prof !== this.state.profit) {
+                  this.setState(
+                    {
+                      profit: prof,
+                    },
+                    () => {
+                      // GRAND TOTAL
+                      let grand = this.state.profit + this.state.subtotal;
+                      if (grand !== this.state.grandTotal) {
+                        this.setState({
+                          grandTotal: grand,
+                        });
+                      }
+                    }
+                  );
+                }
+              }
+            );
+          }
+        }
+      );
     }
 
-    // SUB TOTAL
-    let sub =
-      this.state.generalTotal +
-      this.state.excavationTotal +
-      this.state.plumbElectTotal +
-      this.state.shotcreteTotal +
-      this.state.masonryTotal +
-      this.state.additionsTotal;
-    if (sub !== this.state.subtotal) {
-      this.setState({
-        subtotal: sub,
-      });
-    }
-
-    // PROFITS
-    let prof = this.state.subtotal * this.state.margin;
-    // console.log(prof, this.state.subtotal, this.state.margin, this.state.profit)
-    if (prof !== this.state.profit) {
-      this.setState({
-        profit: prof,
-      });
-    }
-
-    // GRAND TOTAL
-    let grand = this.state.profit + this.state.subtotal;
-    if (grand !== this.state.grandTotal) {
-      this.setState({
-        grandTotal: grand,
-      });
-    }
+    // // GRAND TOTAL
+    // let grand = this.state.profit + this.state.subtotal;
+    // if (grand !== this.state.grandTotal) {
+    //   this.setState({
+    //     grandTotal: grand,
+    //   });
+    // }
   }
 
   handleSubmitForm() {
@@ -875,30 +889,17 @@ export default class Totals extends Component {
     // this.calculateGeneralTotals()
     console.log(this.state);
     return (
-      <div className='totals-container'>
-        <div className=''>
-          <p>General: ${this.state.generalTotal.toFixed(2)}</p>
-          <p>
-            Excavation: ${parseFloat(this.state.excavationTotal).toFixed(2)}
-          </p>
-          <p>
-            Plumbing and Electrical: $
-            {parseFloat(this.state.plumbElectTotal).toFixed(2)}
-          </p>
-          <p>Shotcrete: ${parseFloat(this.state.shotcreteTotal).toFixed(2)}</p>
-          <p>Masonry: ${parseFloat(this.state.masonryTotal).toFixed(2)}</p>
-          <p>Additions: ${parseFloat(this.state.additionsTotal).toFixed(2)}</p>
-          <p>Sub Total: ${parseFloat(this.state.subtotal).toFixed(2)}</p>
-          <p>Profit: ${parseFloat(this.state.profit).toFixed(2)}</p>
-          <p>Grand Total: ${parseFloat(this.state.grandTotal).toFixed(2)}</p>
-        </div>
-        <div className=''>
-          <Button outline color='primary' onClick={this.handleSubmitForm}>
-            Submit
-          </Button>
-          {/* <Button outline color="primary" onClick={() => this.props.toggleDisplayReview()}>Submit</Button> */}
-        </div>
-      </div>
+      <>
+        <p className='font-bold text-underline'>
+          SUBTOTAL:${parseFloat(this.state.subtotal).toFixed(2)}
+        </p>
+        <p className='font-bold text-underline'>
+          PROFIT:${parseFloat(this.state.profit).toFixed(2)}
+        </p>
+        <p className='font-bold text-underline'>
+          GRAND TOTAL:${parseFloat(this.state.grandTotal).toFixed(2)}
+        </p>
+      </>
     );
   }
 }
