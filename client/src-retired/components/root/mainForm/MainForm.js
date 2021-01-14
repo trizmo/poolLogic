@@ -18,8 +18,6 @@ export default class MainForm extends Component {
       city: undefined,
       state: undefined,
       zipCode: undefined,
-      poolArea: undefined,
-      spaArea: undefined,
       poolLength: undefined,
       poolWidth: undefined,
       poolAveDepth: undefined,
@@ -180,25 +178,6 @@ export default class MainForm extends Component {
           <div className='mainForm-general'>
             <Form>
               <FormGroup>
-                <Label for='poolArea'>Pool Area</Label>
-                <Input
-                  type='number'
-                  name='poolArea'
-                  id='poolArea'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for='poolPerimeter'>Pool Perimeter</Label>
-                <Input
-                  type='number'
-                  name='poolPerimeter'
-                  id='poolPerimeter'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup>
-
-              {/* <FormGroup>
                 <Label for='poolLength'>Pool Length</Label>
                 <Input
                   type='number'
@@ -215,7 +194,7 @@ export default class MainForm extends Component {
                   id='poolWidth'
                   onChange={this.handleInputChange}
                 />
-              </FormGroup> */}
+              </FormGroup>
               <FormGroup>
                 <Label for='poolAveDepth'>Pool Average Depth</Label>
                 <Input
@@ -225,26 +204,8 @@ export default class MainForm extends Component {
                   onChange={this.handleInputChange}
                 />
               </FormGroup>
-              <FormGroup>
-                <Label for='spaArea'>Spa Area</Label>
-                <Input
-                  type='number'
-                  name='spaArea'
-                  id='spaArea'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for='spaPerimeter'>Spa Perimeter</Label>
-                <Input
-                  type='number'
-                  name='spaPerimeter'
-                  id='spaPerimeter'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup>
 
-              {/* <FormGroup>
+              <FormGroup>
                 <Label for='spaLength'>Spa Length</Label>
                 <Input
                   type='number'
@@ -261,7 +222,7 @@ export default class MainForm extends Component {
                   id='spaWidth'
                   onChange={this.handleInputChange}
                 />
-              </FormGroup> */}
+              </FormGroup>
               <FormGroup>
                 <Label for='spaAveDepth'>Spa Average Depth</Label>
                 <Input
@@ -324,8 +285,8 @@ export default class MainForm extends Component {
                 >
                   <option>Select Location / Type</option>
                   <option value={"63access"}>6' 3" access</option>
-                  {/* <option value={"west605"}>West Of 605 (Base)</option> */}
-                  {/* <option value={"west405"}>West of 405 (Base)</option> */}
+                  <option value={"west605"}>West Of 605 (Base)</option>
+                  <option value={"west405"}>West of 405 (Base)</option>
                   <option value={"mid-size"}>Mid-size 5' 3"</option>
                   <option value={"mini-access"}>Mini access 3' 6"</option>
                 </Input>
@@ -343,8 +304,8 @@ export default class MainForm extends Component {
                   <option>Select Zone</option>
                   <option value={"riversideCounty"}>Riverside County</option>
                   <option value={"inlandEmpire"}>Inland Empire</option>
-                  {/* <option value={"west605"}>West of 605</option> */}
-                  {/* <option value={"westLA"}>West of LA City / OC</option> */}
+                  <option value={"west605"}>West of 605</option>
+                  <option value={"westLA"}>West of LA City / OC</option>
                 </Input>
               </FormGroup>
               <FormGroup>
@@ -559,9 +520,9 @@ export default class MainForm extends Component {
                   <option value={"riversideCounty/IE"}>
                     Riverside County / Inland Empire
                   </option>
-                  {/* <option value={"losAngeles"}>
+                  <option value={"losAngeles"}>
                     West of 605 / Los Angeles
-                  </option> */}
+                  </option>
                 </Input>
               </FormGroup>
             </Form>
@@ -615,7 +576,6 @@ export default class MainForm extends Component {
                 />
               </FormGroup>
 
-              {/* EVEYTHING BELOW SHOULD BE IT'S OWN INPUT */}
               <FormGroup>
                 <Label for='masonry1'>Masonry1</Label>
                 <Input
