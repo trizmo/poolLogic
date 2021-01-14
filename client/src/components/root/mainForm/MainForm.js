@@ -591,32 +591,83 @@ export default class MainForm extends Component {
                   Double Bullnose
                 </Label>
               </FormGroup>
+
               <FormGroup>
-                <Label for='decking'>Decking</Label>
+                <Label for='decking'>Decking: NG Broom Finish</Label>
                 <Input
-                  type='select'
-                  name='deckingType'
-                  id='deckingType'
+                  type='number'
+                  name='decking'
+                  id='decking'
                   onChange={this.handleDropdownChange}
-                >
-                  <option>Select Type</option>
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for='color1p'>
+                  <Input
+                    type='checkbox'
+                    name='color1p'
+                    id='color1p'
+                    onChange={this.handleCheckboxChange}
+                  />
+                  Color 1% {" "}
+                </Label>
+              </FormGroup>
+
+              <FormGroup>
+                <Label for='acidWash'>
+                  <Input
+                    type='checkbox'
+                    name='acidWash'
+                    id='acidWash'
+                    onChange={this.handleCheckboxChange}
+                  />
+                  Acid Wash or Top Cast {" "}
+                </Label>
+              </FormGroup>
+
+              <FormGroup>
+                <Label for='stampSeamless'>
+                  <Input
+                    type='checkbox'
+                    name='stampSeamless'
+                    id='stampSeamless'
+                    onChange={this.handleCheckboxChange}
+                  />
+                  Seamless Stamp {" "}
+                </Label>
+              </FormGroup>
+
+              <FormGroup>
+                <Label for='stampPattern'>
+                  <Input
+                    type='checkbox'
+                    name='stampPattern'
+                    id='stampPattern'
+                    onChange={this.handleCheckboxChange}
+                  />
+                  Pattern Stamp {" "}
+                </Label>
+              </FormGroup>
+
+              {/* <option>Select Type</option>
                   <option value={"ngBroomFinish"}>NG Broom Finish</option>
                   <option value={"color1p"}>Color 1%</option>
                   <option value={"acidWash"}>Acid Wash or Top Cast</option>
                   <option value={"stampSeamless"}>Seamless Stamp</option>
-                  <option value={"stampPattern"}>Pattern Stamp</option>
-                </Input>
-                <Input
+                  <option value={"stampPattern"}>Pattern Stamp</option> */}
+
+              {/* <Input
                   type='number'
                   name='deckingSquareFoot'
                   id='deckingSquareFoot'
                   placeholder='Square Footage'
                   onChange={this.handleInputChange}
-                />
-              </FormGroup>
+                /> */}
+
 
               {/* EVEYTHING BELOW SHOULD BE IT'S OWN INPUT */}
-              <FormGroup>
+              {/* <FormGroup>
                 <Label for='masonry1'>Masonry1</Label>
                 <Input
                   type='select'
@@ -648,6 +699,96 @@ export default class MainForm extends Component {
                   name='masonry1TypeSquareFoot'
                   id='masonry1TypeSquareFoot'
                   placeholder='Square Footage'
+                  onChange={this.handleInputChange}
+                />
+              </FormGroup> */}
+
+              <FormGroup>
+                <Label for='rbbStone'>RBB Stone or Tile</Label>
+                <Input
+                  type='number'
+                  name='rbbStone'
+                  id='rbbStone'
+                  onChange={this.handleInputChange}
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for='retainingWallCMUBlock'>Retaining Wall CMU Block, No Caps (3' and under)</Label>
+                <Input
+                  type='number'
+                  name='retainingWallCMUBlock'
+                  id='retainingWallCMUBlock'
+                  onChange={this.handleInputChange}
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for='stuccoFin'>Stucco Finish</Label>
+                <Input
+                  type='number'
+                  name='stuccoFin'
+                  id='stuccoFin'
+                  onChange={this.handleInputChange}
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for='smoothStucco'>Smooth Stucco</Label>
+                <Input
+                  type='number'
+                  name='smoothStucco'
+                  id='smoothStucco'
+                  onChange={this.handleInputChange}
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for='standardPavers'>Standard Pavers</Label>
+                <Input
+                  type='number'
+                  name='standardPavers'
+                  id='standardPavers'
+                  onChange={this.handleInputChange}
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for='travertine'>Travertine or Tile Floor or Flagstone with Concrete Base</Label>
+                <Input
+                  type='number'
+                  name='travertine'
+                  id='travertine'
+                  onChange={this.handleInputChange}
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for='concretePadTurf'>Concrete Pad and Turf Ribbons</Label>
+                <Input
+                  type='number'
+                  name='concretePadTurf'
+                  id='concretePadTurf'
+                  onChange={this.handleInputChange}
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for='concreteStepPad'>Concrete Stepping Pads</Label>
+                <Input
+                  type='number'
+                  name='concreteStepPad'
+                  id='concreteStepPad'
+                  onChange={this.handleInputChange}
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for='trexLPE'>Trex or LPE</Label>
+                <Input
+                  type='number'
+                  name='trexLPE'
+                  id='trexLPE'
                   onChange={this.handleInputChange}
                 />
               </FormGroup>

@@ -19,6 +19,7 @@ forget the Y after the =
 
 MASONRY-
 **option for each masonry item
+
 tile - explain PIP/group 3?
 decking - confirm it's $3000 + (sf * finish)
 masonry - explain $40/lf concrete square steps difference

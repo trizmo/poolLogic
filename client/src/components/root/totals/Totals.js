@@ -74,6 +74,15 @@ export default class Totals extends Component {
       deckingSquareFootEstimate: 0,
       masonry1TypeSquareFoot: 0,
       masonry1TypeSquareFootEstimate: 0,
+      rbbStoneEstimate: 0,
+      retainingWallCMUBlockEstimate: 0,
+      stuccoFinEstimate: 0,
+      smoothStuccoEstimate: 0,
+      standardPaversEstimate: 0,
+      travertineEstimate: 0,
+      concretePadTurfEstimate: 0,
+      concreteStepPadEstimate: 0,
+      trexLPEEstimate: 0,
       masonryRetainingWall: 0,
       masonryRetainingWallEstimate: 0,
       masonryCMUWall: 0,
@@ -558,74 +567,54 @@ export default class Totals extends Component {
       }
     }
 
-    if (props.allData.masonry1Type && props.allData.masonry1TypeSquareFoot) {
-      if (props.allData.masonry1Type === "rbbStone") {
-        update.masonry1TypeSquareFootEstimate =
-          25 * props.allData.masonry1TypeSquareFoot;
-        update.masonry1TypeSquareFoot = parseInt(
-          props.allData.masonry1TypeSquareFoot
-        );
-        update.masonry1Type = "rbbStone";
-      } else if (props.allData.masonry1Type === "retainingWallCMUBlock") {
-        update.masonry1TypeSquareFootEstimate =
-          50 * props.allData.masonry1TypeSquareFoot;
-        update.masonry1TypeSquareFoot = parseInt(
-          props.allData.masonry1TypeSquareFoot
-        );
-        update.masonry1Type = "retainingWallCMUBlock";
-      } else if (props.allData.masonry1Type === "stuccoFin") {
-        update.masonry1TypeSquareFootEstimate =
-          15 * props.allData.masonry1TypeSquareFoot;
-        update.masonry1TypeSquareFoot = parseInt(
-          props.allData.masonry1TypeSquareFoot
-        );
-        update.masonry1Type = "stuccoFin";
-      } else if (props.allData.masonry1Type === "smoothStucco") {
-        update.masonry1TypeSquareFootEstimate =
-          25 * props.allData.masonry1TypeSquareFoot;
-        update.masonry1TypeSquareFoot = parseInt(
-          props.allData.masonry1TypeSquareFoot
-        );
-        update.masonry1Type = "smoothStucco";
-      } else if (props.allData.masonry1Type === "standardPavers") {
-        update.masonry1TypeSquareFootEstimate =
-          12 * props.allData.masonry1TypeSquareFoot;
-        update.masonry1TypeSquareFoot = parseInt(
-          props.allData.masonry1TypeSquareFoot
-        );
-        update.masonry1Type = "standardPavers";
-      } else if (props.allData.masonry1Type === "travertine") {
-        update.masonry1TypeSquareFootEstimate =
-          22 * props.allData.masonry1TypeSquareFoot;
-        update.masonry1TypeSquareFoot = parseInt(
-          props.allData.masonry1TypeSquareFoot
-        );
-        update.masonry1Type = "travertine";
-      } else if (props.allData.masonry1Type === "concretePadTurf") {
-        update.masonry1TypeSquareFootEstimate =
-          15 * props.allData.masonry1TypeSquareFoot;
-        update.masonry1TypeSquareFoot = parseInt(
-          props.allData.masonry1TypeSquareFoot
-        );
-        update.masonry1Type = "concretePadTurf";
-      } else if (props.allData.masonry1Type === "concreteStepPad") {
-        update.masonry1TypeSquareFootEstimate =
-          8 * props.allData.masonry1TypeSquareFoot;
-        update.masonry1TypeSquareFoot = parseInt(
-          props.allData.masonry1TypeSquareFoot
-        );
-        update.masonry1Type = "concreteStepPad";
-      } else if (props.allData.masonry1Type === "trexLPE") {
-        update.masonry1TypeSquareFootEstimate =
-          42 * props.allData.masonry1TypeSquareFoot;
-        update.masonry1TypeSquareFoot = parseInt(
-          props.allData.masonry1TypeSquareFoot
-        );
-        update.masonry1Type = "trexLPE";
-      } else {
-        update.masonry1TypeSquareFootEstimate = 0;
-      }
+
+    if (props.allData.rbbStone && props.allData.rbbStone > 0) {
+      update.rbbStoneEstimate = 25 * props.allData.rbbStone;
+      update.rbbStone = parseInt(props.allData.rbbStone);
     }
+
+    if (props.allData.retainingWallCMUBlock && props.allData.retainingWallCMUBlock > 0) {
+      update.retainingWallCMUBlockEstimate = 50 * props.allData.retainingWallCMUBlock;
+      update.retainingWallCMUBlock = parseInt(props.allData.retainingWallCMUBlock);
+    }
+
+    if (props.allData.stuccoFin && props.allData.stuccoFin > 0) {
+      update.stuccoFinEstimate = 15 * props.allData.stuccoFin;
+      update.stuccoFin = parseInt(props.allData.stuccoFin);
+    }
+
+    if (props.allData.smoothStucco && props.allData.smoothStucco > 0) {
+      update.smoothStuccoEstimate = 25 * props.allData.smoothStucco;
+      update.smoothStucco = parseInt(props.allData.smoothStucco);
+    }
+
+    if (props.allData.standardPavers && props.allData.standardPavers > 0) {
+      update.standardPaversEstimate = 12 * props.allData.standardPavers;
+      update.standardPavers = parseInt(props.allData.standardPavers);
+    }
+
+    if (props.allData.travertine === "travertine") {
+      update.travertineEstimate = 22 * props.allData.travertine;
+      update.travertine = parseInt(props.allData.travertine);
+    }
+
+    if (props.allData.concretePadTurf && props.allData.concretePadTurf > 0) {
+      update.concretePadTurfEstimate = 15 * props.allData.concretePadTurf;
+      update.concretePadTurf = parseInt(props.allData.concretePadTurf);
+    }
+
+    if (props.allData.concreteStepPad && props.allData.concreteStepPad > 0) {
+      update.concreteStepPadEstimate = 8 * props.allData.concreteStepPad;
+      update.concreteStepPad = parseInt(props.allData.concreteStepPad);
+    }
+
+    if (props.allData.trexLPE && props.allData.trexLPE > 0) {
+      update.trexLPEEstimate = 42 * props.allData.trexLPE;
+      update.trexLPE = parseInt(props.allData.trexLPE);
+
+    }
+
+
 
     if (props.allData.masonryRetainingWall) {
       update.masonryRetainingWallEstimate =
@@ -819,7 +808,15 @@ export default class Totals extends Component {
       this.state.tileCopingEstimate +
       this.state.doubleBullnose +
       this.state.deckingSquareFootEstimate +
-      this.state.masonry1TypeSquareFootEstimate +
+      this.state.rbbStoneEstimate +
+      this.state.retainingWallCMUBlockEstimate +
+      this.state.stuccoFinEstimate +
+      this.state.smoothStuccoEstimate +
+      this.state.standardPaversEstimate +
+      this.state.travertineEstimate +
+      this.state.concretePadTurfEstimate +
+      this.state.concreteStepPadEstimate +
+      this.state.trexLPEEstimate +
       this.state.masonryCleanup +
       this.state.bagsOfGlassEstimate +
       this.state.bagsOfAbaloneEstimate +
@@ -843,7 +840,7 @@ export default class Totals extends Component {
       this.state.sheerDecentEstimate +
       this.state.sheerDecentPumpsEstimate +
       this.state.barbecuesEstimate;
-    console.log("additions", additions);
+    // console.log("additions", additions);
     if (additions !== this.state.additionsTotal) {
       this.setState({
         additionsTotal: additions,
@@ -909,7 +906,7 @@ export default class Totals extends Component {
 
   render(props) {
     // this.calculateGeneralTotals()
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className='totals-container'>
         <div className=''>
