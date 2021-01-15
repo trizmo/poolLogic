@@ -399,47 +399,6 @@ export default class Totals extends Component {
       update.deputyInspection = 0;
     }
     // POOL ONLY
-    // if (
-    //   props.allData.shotcreteLocation &&
-    //   props.allData.poolLength &&
-    //   props.allData.poolWidth &&
-    //   props.allData.poolAveDepth &&
-    //   !props.allData.spaLength &&
-    //   !props.allData.spaWidth
-    // ) {
-    //   let locationCost = 0;
-    //   let perimeter =
-    //     2 * props.allData.poolLength + 2 * props.allData.poolWidth;
-    //   let aveDepth = props.allData.poolAveDepth;
-    //   let surfaceArea = props.allData.poolLength * props.allData.poolWidth;
-
-    //   if (props.allData.shotcreteLocation === "riversideCounty/IE") {
-    //     update.shotcreteLocation = props.allData.shotcreteLocation;
-    //     locationCost = 200;
-    //   } else if (props.allData.shotcreteLocation === "losAngeles") {
-    //     update.shotcreteLocation = props.allData.shotcreteLocation;
-    //     locationCost = 210;
-    //   }
-
-    //   let cubicYards = (perimeter * aveDepth + surfaceArea) / 27;
-
-    //   if (cubicYards < 10) {
-    //     update.shotcreteEstimate = 3500;
-    //     update.shotcreteCubicYards = cubicYards;
-    //   } else if (cubicYards >= 10) {
-    //     update.shotcreteEstimate = 3500 + cubicYards * locationCost;
-    //     update.shotcreteCubicYards = cubicYards;
-    //   }
-
-    //   console.log("shotcrete for pool only:");
-    //   console.log("location cost: " + locationCost);
-    //   console.log("perimeter: " + perimeter);
-    //   console.log("aveDepth: " + aveDepth);
-    //   console.log("surfaceArea: " + surfaceArea);
-    //   console.log("shotcreteEstimate: " + update.shotcreteEstimate);
-    // } 
-
-
     if (
       props.allData.shotcreteLocation &&
       props.allData.poolArea &&
@@ -450,12 +409,22 @@ export default class Totals extends Component {
       !props.allData.spaAveDepth
     ) {
       let locationCost = 0;
-      let perimeter = props.allData.poolPerimeter
-      let aveDepth = props.allData.poolAveDepth;
-      // let surfaceArea = props.allData.poolLength * props.allData.poolWidth;
+      let perimeter = parseFloat(props.allData.poolPerimeter)
+      let aveDepth = parseFloat(props.allData.poolAveDepth)
+      let surfaceArea = parseFloat(props.allData.poolArea)
 
-      let surfaceArea = props.allData.poolArea
-      let cubicYards = (perimeter * aveDepth + surfaceArea) / 27;
+      if (props.allData.shotcreteLocation === "riversideCounty/IE") {
+        update.shotcreteLocation = props.allData.shotcreteLocation;
+        locationCost = 200;
+      } else if (props.allData.shotcreteLocation === "losAngeles") {
+        update.shotcreteLocation = props.allData.shotcreteLocation;
+        locationCost = 210;
+      }
+
+
+      let cubicYards = ((perimeter * aveDepth) + surfaceArea) / 27
+      console.log("Cubic yards: " + cubicYards)
+      console.log("location cost: " + locationCost)
 
       if (cubicYards < 10) {
         update.shotcreteEstimate = 3500;
@@ -473,25 +442,20 @@ export default class Totals extends Component {
       console.log("shotcreteEstimate: " + update.shotcreteEstimate);
     }
 
+    // POOL AND SPA
     else if (
       props.allData.shotcreteLocation &&
-      props.allData.spaLength &&
-      props.allData.spaWidth &&
-      props.allData.spaAveDepth &&
-      props.allData.poolLength &&
-      props.allData.poolWidth &&
-      props.allData.poolAveDepth
+      props.allData.poolArea &&
+      props.allData.poolPerimeter &&
+      props.allData.poolAveDepth &&
+      props.allData.spaArea &&
+      props.allData.spaPerimeter &&
+      props.allData.spaAveDepth
     ) {
       let locationCost = 0;
-
-      let perimeter =
-        2 * props.allData.poolLength +
-        2 * props.allData.poolWidth +
-        (2 * props.allData.spaLength + 2 * props.allData.spaWidth);
-      let aveDepth = props.allData.poolAveDepth;
-      let surfaceArea =
-        props.allData.poolLength * props.allData.poolWidth +
-        props.allData.spaLength * props.allData.spaWidth;
+      let perimeter = parseFloat(props.allData.poolPerimeter) + parseFloat(props.allData.spaPerimeter)
+      let aveDepth = (parseFloat(props.allData.poolAveDepth) + parseFloat(props.allData.spaAveDepth)) / 2
+      let surfaceArea = parseFloat(props.allData.poolArea) + parseFloat(props.allData.spaArea)
 
       if (props.allData.shotcreteLocation === "riversideCounty/IE") {
         update.shotcreteLocation = props.allData.shotcreteLocation;

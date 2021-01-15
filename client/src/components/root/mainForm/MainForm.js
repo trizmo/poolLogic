@@ -133,6 +133,7 @@ export default class MainForm extends Component {
                   type='name'
                   name='clientName'
                   id='clientName'
+                  placeholder='Client First and Last Name'
                   onChange={this.handleInputChange}
                 />
               </FormGroup>
@@ -142,6 +143,7 @@ export default class MainForm extends Component {
                   type='text'
                   name='address1'
                   id='address1'
+                  placeholder="Address"
                   onChange={this.handleInputChange}
                 />
               </FormGroup>
@@ -151,6 +153,7 @@ export default class MainForm extends Component {
                   type='text'
                   name='city'
                   id='city'
+                  placeholder="City"
                   onChange={this.handleInputChange}
                 />
               </FormGroup>
@@ -161,6 +164,7 @@ export default class MainForm extends Component {
                     type='text'
                     name='state'
                     id='state'
+                    placeholder="State"
                     onChange={this.handleInputChange}
                   />
                 </FormGroup>
@@ -170,6 +174,7 @@ export default class MainForm extends Component {
                     type='text'
                     name='zipCode'
                     id='zipCode'
+                    placeholder="Zip Code"
                     onChange={this.handleInputChange}
                   />
                 </FormGroup>
@@ -179,132 +184,106 @@ export default class MainForm extends Component {
 
           <div className='mainForm-general'>
             <Form>
-              <FormGroup>
-                <Label for='poolArea'>Pool Area</Label>
-                <Input
-                  type='number'
-                  name='poolArea'
-                  id='poolArea'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for='poolPerimeter'>Pool Perimeter</Label>
-                <Input
-                  type='number'
-                  name='poolPerimeter'
-                  id='poolPerimeter'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup>
-
-              {/* <FormGroup>
-                <Label for='poolLength'>Pool Length</Label>
-                <Input
-                  type='number'
-                  name='poolLength'
-                  id='poolLength'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for='poolWidth'>Pool Width</Label>
-                <Input
-                  type='number'
-                  name='poolWidth'
-                  id='poolWidth'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup> */}
-              <FormGroup>
-                <Label for='poolAveDepth'>Pool Average Depth</Label>
-                <Input
-                  type='number'
-                  name='poolAveDepth'
-                  id='poolAveDepth'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for='spaArea'>Spa Area</Label>
-                <Input
-                  type='number'
-                  name='spaArea'
-                  id='spaArea'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for='spaPerimeter'>Spa Perimeter</Label>
-                <Input
-                  type='number'
-                  name='spaPerimeter'
-                  id='spaPerimeter'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup>
-
-              {/* <FormGroup>
-                <Label for='spaLength'>Spa Length</Label>
-                <Input
-                  type='number'
-                  name='spaLength'
-                  id='spaLength'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for='spaWidth'>Spa Width</Label>
-                <Input
-                  type='number'
-                  name='spaWidth'
-                  id='spaWidth'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup> */}
-              <FormGroup>
-                <Label for='spaAveDepth'>Spa Average Depth</Label>
-                <Input
-                  type='number'
-                  name='spaAveDepth'
-                  id='spaAveDepth'
-                  onChange={this.handleInputChange}
-                />
-              </FormGroup>
-
-              <FormGroup>
-                <Label for='projectManager'>
+              <div className='mainForm-customerInfo-address2'>
+                <FormGroup>
+                  <Label for='poolArea'>Pool Area</Label>
                   <Input
-                    type='checkbox'
-                    name='projectManager'
-                    id='projectManager'
-                    onChange={this.handleCheckboxChange}
+                    type='number'
+                    name='poolArea'
+                    id='poolArea'
+                    placeholder="Square Feet"
+                    onChange={this.handleInputChange}
                   />
+                </FormGroup>
+                <FormGroup>
+                  <Label for='poolPerimeter'>Pool Perimeter</Label>
+                  <Input
+                    type='number'
+                    name='poolPerimeter'
+                    id='poolPerimeter'
+                    placeholder="Linear Feet"
+                    onChange={this.handleInputChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for='poolAveDepth'>Pool Average Depth</Label>
+                  <Input
+                    type='number'
+                    name='poolAveDepth'
+                    id='poolAveDepth'
+                    placeholder="Linear Feet"
+                    onChange={this.handleInputChange}
+                  />
+                </FormGroup>
+              </div>
+
+              <div className='mainForm-customerInfo-address2'>
+                <FormGroup>
+                  <Label for='spaArea'>Spa Area</Label>
+                  <Input
+                    type='number'
+                    name='spaArea'
+                    id='spaArea'
+                    placeholder="Square Feet"
+                    onChange={this.handleInputChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for='spaPerimeter'>Spa Perimeter</Label>
+                  <Input
+                    type='number'
+                    name='spaPerimeter'
+                    id='spaPerimeter'
+                    placeholder="Linear Feet"
+                    onChange={this.handleInputChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for='spaAveDepth'>Spa Average Depth</Label>
+                  <Input
+                    type='number'
+                    name='spaAveDepth'
+                    id='spaAveDepth'
+                    onChange={this.handleInputChange}
+                  />
+                </FormGroup>
+              </div>
+
+              <div className='mainForm-customerInfo-address2'>
+                <FormGroup>
+                  <Label for='projectManager'>
+                    <Input
+                      type='checkbox'
+                      name='projectManager'
+                      id='projectManager'
+                      onChange={this.handleCheckboxChange}
+                    />
                   Project Manager
                 </Label>
-              </FormGroup>
-              <FormGroup>
-                <Label for='plans'>
-                  <Input
-                    type='checkbox'
-                    name='plans'
-                    id='plans'
-                    onChange={this.handleCheckboxChange}
-                  />{" "}
+                </FormGroup>
+                <FormGroup>
+                  <Label for='plans'>
+                    <Input
+                      type='checkbox'
+                      name='plans'
+                      id='plans'
+                      onChange={this.handleCheckboxChange}
+                    />{" "}
                   Plans
                 </Label>
-              </FormGroup>
-              <FormGroup>
-                <Label for='engineering'>
-                  <Input
-                    type='checkbox'
-                    name='engineering'
-                    id='engineering'
-                    onChange={this.handleCheckboxChange}
-                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for='engineering'>
+                    <Input
+                      type='checkbox'
+                      name='engineering'
+                      id='engineering'
+                      onChange={this.handleCheckboxChange}
+                    />
                   Engineering
                 </Label>
-              </FormGroup>
+                </FormGroup>
+              </div>
             </Form>
           </div>
 
@@ -312,25 +291,6 @@ export default class MainForm extends Component {
             {/* <h3>Excavation</h3> */}
 
             <Form>
-              <FormGroup>
-                <Label for='excavationMainLocation'>
-                  Excavation Location / Type
-                </Label>
-                <Input
-                  type='select'
-                  name='excavationMainLocation'
-                  id='excavationMainLocation'
-                  onChange={this.handleDropdownChange}
-                >
-                  <option>Select Location / Type</option>
-                  <option value={"63access"}>6' 3" access</option>
-                  {/* <option value={"west605"}>West Of 605 (Base)</option> */}
-                  {/* <option value={"west405"}>West of 405 (Base)</option> */}
-                  <option value={"mid-size"}>Mid-size 5' 3"</option>
-                  <option value={"mini-access"}>Mini access 3' 6"</option>
-                </Input>
-                {/* <Input type="text" name="excavationMainSquareFoot" id="excavationMainSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} /> */}
-              </FormGroup>
 
               <FormGroup>
                 <Label for='excavationZone'>Excavation Zone</Label>
@@ -343,10 +303,35 @@ export default class MainForm extends Component {
                   <option>Select Zone</option>
                   <option value={"riversideCounty"}>Riverside County</option>
                   <option value={"inlandEmpire"}>Inland Empire</option>
+
+                  {/* OPEN THESE OPTIONS IF BEING  USED BY OTHER BRANCHES */}
                   {/* <option value={"west605"}>West of 605</option> */}
                   {/* <option value={"westLA"}>West of LA City / OC</option> */}
                 </Input>
               </FormGroup>
+
+              <FormGroup>
+                <Label for='excavationMainLocation'>
+                  Excavation Location / Type
+                </Label>
+                <Input
+                  type='select'
+                  name='excavationMainLocation'
+                  id='excavationMainLocation'
+                  onChange={this.handleDropdownChange}
+                >
+                  <option>Select Location / Type</option>
+                  <option value={"63access"}>6' 3" access</option>
+                  <option value={"mid-size"}>Mid-size 5' 3"</option>
+                  <option value={"mini-access"}>Mini access 3' 6"</option>
+
+                  {/* OPEN THESE OPTIONS IF BEING  USED BY OTHER BRANCHES */}
+                  {/* <option value={"west605"}>West Of 605 (Base)</option> */}
+                  {/* <option value={"west405"}>West of 405 (Base)</option> */}
+                </Input>
+                {/* <Input type="text" name="excavationMainSquareFoot" id="excavationMainSquareFoot" placeholder="Square Footage" onChange={this.handleInputChange} /> */}
+              </FormGroup>
+
               <FormGroup>
                 <Label for='excavationDemo'>Demo</Label>
                 <Input
@@ -357,6 +342,7 @@ export default class MainForm extends Component {
                   onChange={this.handleInputChange}
                 />
               </FormGroup>
+
               <FormGroup>
                 <Label for='excavationSod'>Sod / Trash</Label>
                 <Input
@@ -367,6 +353,7 @@ export default class MainForm extends Component {
                   onChange={this.handleInputChange}
                 />
               </FormGroup>
+
               <FormGroup>
                 <Label for='excavationConcreteDemo'>Concrete Demo</Label>
                 <Input
@@ -377,6 +364,7 @@ export default class MainForm extends Component {
                   onChange={this.handleInputChange}
                 />
               </FormGroup>
+
               <FormGroup>
                 <Label for='excavationGrading'>Grading</Label>
                 <Input
@@ -387,28 +375,32 @@ export default class MainForm extends Component {
                   onChange={this.handleInputChange}
                 />
               </FormGroup>
-              <FormGroup>
-                <Label for='excavationDeepRamp'>
-                  <Input
-                    type='checkbox'
-                    name='excavationDeepRamp'
-                    id='excavationDeepRamp'
-                    onChange={this.handleCheckboxChange}
-                  />
+
+              <div className='mainForm-customerInfo-address2'>
+                <FormGroup>
+                  <Label for='excavationDeepRamp'>
+                    <Input
+                      type='checkbox'
+                      name='excavationDeepRamp'
+                      id='excavationDeepRamp'
+                      onChange={this.handleCheckboxChange}
+                    />
                   Deep-end Ramp
                 </Label>
-              </FormGroup>
-              <FormGroup>
-                <Label for='excavationRockArea'>
-                  <Input
-                    type='checkbox'
-                    name='excavationRockArea'
-                    id='excavationRockArea'
-                    onChange={this.handleCheckboxChange}
-                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for='excavationRockArea'>
+                    <Input
+                      type='checkbox'
+                      name='excavationRockArea'
+                      id='excavationRockArea'
+                      onChange={this.handleCheckboxChange}
+                    />
                   Rock Area - Claremont, Fontana, Upland, Rancho Cucamonga
                 </Label>
-              </FormGroup>
+                </FormGroup>
+              </div>
+
               {/* <FormGroup>
                 <Label for="excavationDayOfDig">
                   Day Of Dig - To enlarge Pool
@@ -425,10 +417,10 @@ export default class MainForm extends Component {
                 >
                   <option>Select Location</option>
                   <option value={"riversideCounty"}>Riverside County</option>
-                  <option value={"LACounty"}>Los Angeles County</option>
+                  {/* <option value={"LACounty"}>Los Angeles County</option> */}
                   <option value={"SBCounty"}>San Bernardino County</option>
-                  <option value={"OrangeCounty"}>Orange County</option>
-                  <option value={"LACity"}>Los Angeles CITY</option>
+                  {/* <option value={"OrangeCounty"}>Orange County</option> */}
+                  {/* <option value={"LACity"}>Los Angeles CITY</option> */}
                 </Input>
                 <Input
                   type='text'
@@ -497,39 +489,44 @@ export default class MainForm extends Component {
                   onChange={this.handleInputChange}
                 />
               </FormGroup>
-              <FormGroup>
-                <Label for='dedicatedSuction'>
-                  <Input
-                    type='checkbox'
-                    name='dedicatedSuction'
-                    id='dedicatedSuction'
-                    onChange={this.handleCheckboxChange}
-                  />
+
+              <div className='mainForm-customerInfo-address2'>
+                <FormGroup>
+                  <Label for='dedicatedSuction'>
+                    <Input
+                      type='checkbox'
+                      name='dedicatedSuction'
+                      id='dedicatedSuction'
+                      onChange={this.handleCheckboxChange}
+                    />
                   Dedicated Suction
                 </Label>
-              </FormGroup>
-              <FormGroup>
-                <Label for='bondingWire'>
-                  <Input
-                    type='checkbox'
-                    name='bondingWire'
-                    id='bondingWire'
-                    onChange={this.handleCheckboxChange}
-                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for='bondingWire'>
+                    <Input
+                      type='checkbox'
+                      name='bondingWire'
+                      id='bondingWire'
+                      onChange={this.handleCheckboxChange}
+                    />
                   Bonding Wire
                 </Label>
-              </FormGroup>
-              <FormGroup>
-                <Label for='sawCut'>
-                  <Input
-                    type='checkbox'
-                    name='sawCut'
-                    id='sawCut'
-                    onChange={this.handleCheckboxChange}
-                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for='sawCut'>
+                    <Input
+                      type='checkbox'
+                      name='sawCut'
+                      id='sawCut'
+                      onChange={this.handleCheckboxChange}
+                    />
                   Sawcut
                 </Label>
-              </FormGroup>
+                </FormGroup>
+              </div>
+
+
             </Form>
           </div>
 

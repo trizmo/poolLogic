@@ -18,6 +18,10 @@
   padding: 0rem 1rem;
 }
 
+.mainForm-customerInfo {
+  margin: 0em 0em 3em 0em 
+}
+
 .mainForm-customerInfo-address2 {
   display: flex;
   justify-content: space-between;
