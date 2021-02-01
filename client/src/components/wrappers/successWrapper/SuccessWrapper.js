@@ -10,6 +10,7 @@ export default class SuccessWrapper extends React.Component {
       data: null,
     };
   }
+
   componentDidMount() {
     let data = localStorage.getItem("poolData");
     if (data !== null) {
@@ -19,6 +20,7 @@ export default class SuccessWrapper extends React.Component {
       });
     }
   }
+
   render() {
     const { data } = this.state;
     if (data == null) {
@@ -285,6 +287,7 @@ export default class SuccessWrapper extends React.Component {
                   <p className="zero-margin">Total Area: {parseFloat(poolArea) + parseFloat(spaArea)}</p>
                   <p>Total Perimeter: {parseFloat(spaPerimeter) + parseFloat(poolPerimeter)}</p>
                 </div>
+
                 <p className='text-underline font-bold'>Extras</p>
                 <ul>
                   {manualIgnitionFireBowl ? (<li>Manual Ignition Fire Bowl: ${manualIgnitionFireBowlEstimate.toFixed(2)} </li>) : null}
@@ -297,6 +300,9 @@ export default class SuccessWrapper extends React.Component {
 
                 <Totals allData={data} />
               </div>
+
+
+
             </div>
           </div>
         </React.Fragment>
