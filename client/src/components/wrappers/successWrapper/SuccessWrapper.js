@@ -1,5 +1,5 @@
 import React from "react";
-import Totals from "./../../root/totals/TotalPrintable";
+import Totals from "./../../root/totals/TotalPrintable-NEW";
 // CSS
 // import "./successWrapper.css";
 import "./index.css";
@@ -30,6 +30,7 @@ export default class SuccessWrapper extends React.Component {
         sheerDecentRuns,
         barbecues,
         manualIgnitionFireBowl,
+        manualIgnitionFireBowlEstimate,
         plasterMastic,
         electronicIgnitionFireBowl,
         sheerDecent,
@@ -41,34 +42,65 @@ export default class SuccessWrapper extends React.Component {
         zipCode,
         plans,
         engineering,
+        equipment,
         projectManager,
         poolLength,
         poolWidth,
         poolAveDepth,
         spaLength,
         spaWidth,
+        spaPerimeter,
+        poolPerimeter,
+        poolArea,
+        spaArea,
         spaAveDepth,
         excavationZone,
         excavationDemo,
         excavationSod,
         excavationGrading,
+        excavationGradingEstimate,
         excavationSteelLocation,
         excavationSteelSquareFoot,
-        plumbingType,
+        excavationSteelSquareFootEstimate,
+        plumbingLengthEstimate,
+        stuccoFinEstimate,
         plumbingLength,
         gasLength,
+        gasLengthEstimate,
         electricalLength,
+        electricalLengthEstimate,
         dedicatedSuction,
         sawCut,
+        rbbStone,
+        rbbStoneEstimate,
         deputyInspection,
         shotcreteLocation,
+        shotcreteTotal,
         tileCoping,
+        tileCopingEstimate,
         deckingType,
         masonryRetainingWall,
+        masonryRetainingWallEstimate,
         masonryCMUWall,
+        masonryCMUWallEstimate,
         masonryCleanup,
         plasterType,
         plasterLength,
+        plasterLengthEstimate,
+        standardPaversEstimate,
+        smoothStuccoEstimate,
+        standardPavers,
+        travertineEstimate,
+        concretePadTurfEstimate,
+        concreteStepPadEstimate,
+        trexLPEEstimate,
+        deckingSquareFoot,
+        deckingSquareFootEstimate,
+        electronicIgnitionFireBowlEstimate,
+        sheerDecentEstimate,
+        sheerDecentPumpsEstimate,
+        sheerDecentRunsEstimate,
+        barbecuesEstimate,
       } = data;
 
       return (
@@ -90,177 +122,177 @@ export default class SuccessWrapper extends React.Component {
             <div className='successWrapper-information'>
               <div className='successWrapper-information-left-container'>
                 <p className='flex-item'>
-                  PM: {projectManager ? "TRUE" : "NULL"}
+                  PM: ${projectManager ? projectManager.toFixed(2) : 0}
                 </p>
-                <p>Plans: {plans ? "TRUE" : "NULL"} </p>
+                <p>Plans: ${plans ? plans : 0} </p>
                 <p>
                   <span className='child1'>
                     {" "}
-                    Engineering: {engineering ? "TRUE" : "NULL"}{" "}
+                    Engineering: ${engineering ? engineering.toFixed(2) : 0}{" "}
                   </span>{" "}
                   {/* <span className='child2'>(SIZE_________)</span>{" "} */}
                 </p>
 
                 <div className='left-inner-container'>
-                  <p>Zone :{excavationZone ? excavationZone : "NULL"}</p>
-                  <p>
-                    Demo :{excavationDemo ? "TRUE" : "NULL"}
-                    (#Loads: {excavationDemo ? excavationDemo : "NULL"})
+                  <p className='zero-margin'>Zone: ${excavationZone ? excavationZone.toFixed(2) : 0}</p>
+                  <p className='zero-margin'>
+                    Demo: ${excavationDemo ? excavationDemo.toFixed(2) : 0} {" "}
+                    (#Loads: {excavationDemo ? excavationDemo : 0})
                   </p>
-                  <p>
-                    Sod : {excavationSod ? "TRUE" : "NULL"}
-                    (#Loads:{excavationSod ? excavationSod : "NULL"})
+                  <p className='zero-margin'>
+                    Sod: ${excavationSod ? excavationSod.toFixed(2) : 0} {" "}
+                    (#Loads:{excavationSod ? excavationSod : 0})
                   </p>
-                  <p>
-                    Grading :{excavationGrading ? "TRUE" : "NULL"} (#Loads:
-                    {excavationGrading ? excavationGrading : "NULL"} )
+                  <p className='zero-margin'>
+                    Grading: ${excavationGradingEstimate ? <strong>{excavationGradingEstimate.toFixed(2)}</strong> : 0} {" "}
+                     (#Loads: {excavationGrading ? excavationGrading : 0} )
                   </p>
                 </div>
                 <p>
-                  Steel:
-                  {excavationSteelLocation
-                    ? excavationSteelLocation
-                    : "Null"}{" "}
-                  :(SF :{" "}
-                  {excavationSteelSquareFoot
-                    ? excavationSteelSquareFoot
-                    : "NULL"}
-                  )
+                  Steel: ${excavationSteelSquareFootEstimate ? excavationSteelSquareFootEstimate.toFixed(2) : 0} {" "}
+                  (SF :{" "}{excavationSteelSquareFoot ? excavationSteelSquareFoot : 0})
                 </p>
-                <p>Equipment:___________</p>
+                <p>Equipment: ${equipment ? equipment : 0}</p>
                 <p>Plumbing/Electrical:</p>
                 <div className='left-inner-container'>
-                  <p>
-                    <span className='child1'>
+                  <p className='zero-margin'>
+                    <span className='child1 zero-margin'>
                       {" "}
-                      Plumbing: {plumbingType ? plumbingType : "NULL"}{" "}
+                      Plumbing: ${plumbingLengthEstimate ? plumbingLengthEstimate.toFixed(2) : 0}{" "}
                     </span>{" "}
                     <span className='child2'>
-                      (LF :{plumbingLength ? plumbingLength : "NULL"})
+                      (LF :{plumbingLength ? plumbingLength : 0})
                     </span>{" "}
                   </p>
-                  <p>
-                    <span className='child1'>
+                  <p className='zero-margin'>
+                    <span className='child1 zero-margin'>
                       {" "}
-                      Electrical Run: {electricalLength ? "TRUE" : "NULL"}{" "}
+                      Electrical Run: ${electricalLengthEstimate ? electricalLengthEstimate.toFixed(2) : 0}{" "}
                     </span>{" "}
                     <span className='child2'>
-                      (LF :{electricalLength ? electricalLength : "NULL"})
+                      (LF :{electricalLength ? electricalLength : 0})
                     </span>{" "}
                   </p>
-                  <p>
-                    <span className='child1'>
+                  <p className='zero-margin'>
+                    <span className='child1 zero-margin'>
                       {" "}
-                      Gas Run: {gasLength ? "TRUE" : "NULL"}{" "}
+                      Gas Run: ${gasLengthEstimate ? gasLengthEstimate.toFixed(2) : 0}{" "}
                     </span>{" "}
                     <span className='child2'>
-                      (LF :{gasLength ? gasLength : "NULL"})
+                      (LF :{gasLength ? gasLength : 0})
                     </span>{" "}
                   </p>
-                  <p>
-                    Ded. Suction:{dedicatedSuction ? dedicatedSuction : "NULL"}
+                  <p className='zero-margin'>
+                    Ded. Suction: ${dedicatedSuction ? dedicatedSuction : 0}
                   </p>
-                  <p>Saw Cut:{sawCut ? sawCut : "NULL"}</p>
+                  <p className='zero-margin'>Saw Cut:{sawCut ? sawCut : 0}</p>
                 </div>
                 <p>
                   <span className='child1'>
                     {" "}
-                    Retaining Wall: {masonryRetainingWall ? "TRUE" : "NULL"}
+                    Retaining Wall: ${masonryRetainingWall ? masonryRetainingWallEstimate : 0}
                   </span>{" "}
                   <span className='child2'>
-                    (LF : {masonryRetainingWall ? masonryRetainingWall : "NULL"}
+                    (LF : {masonryRetainingWall ? masonryRetainingWall : 0}
                     )
                   </span>{" "}
                 </p>
                 <p>
                   <span className='child1'>
                     {" "}
-                    CMU Wall: {masonryCMUWall ? "TRUE" : "NULL"}{" "}
+                    CMU Wall: {masonryCMUWall ? masonryCMUWallEstimate.toFixed(2) : 0}{" "}
                   </span>{" "}
                   <span className='child2'>
-                    (LF : {masonryCMUWall ? masonryCMUWall : "NULL"})
+                    (LF : {masonryCMUWall ? masonryCMUWall : 0})
                   </span>{" "}
                 </p>
                 <p>
                   <span className='child1'>
                     {" "}
-                    Deputy Inspection: {deputyInspection ? "TRUE" : "NULL"}{" "}
+                    Deputy Inspection: ${deputyInspection ? deputyInspection.toFixed(2) : 0}{" "}
                   </span>{" "}
                   {/* <span className='child2'>(LF_________)</span>{" "} */}
                 </p>
                 <p>
-                  Short Crate:{shotcreteLocation ? shotcreteLocation : "NULL"}
+                  Shotcrete: ${shotcreteTotal ? shotcreteTotal.toFixed(2) : 0}
                 </p>
                 <p>Masonry:</p>
                 <div className='left-inner-container'>
-                  <p>Tile & Coping : {tileCoping ? tileCoping : "NULL"}</p>
-                  <p>
+                  <p className='zero-margin'>Tile & Coping : {tileCoping ? tileCopingEstimate.toFixed(2) : 0}</p>
+                  <p className='zero-margin'>
                     <span className='child1'> Steps: ________ </span>{" "}
                     <span className='child2'>(LF_________)</span>{" "}
                   </p>
-                  <p>
-                    <span className='child1'> RBB: ________ </span>{" "}
-                    <span className='child2'>(LF_________)</span>{" "}
+                  <p className='zero-margin'>
+                    {rbbStone ? <React.Fragment><span className='child1'> RBB: ${rbbStoneEstimate.toFixed(2)} </span> {" "} <span className='child2'>(LF: {rbbStone})</span>{" "} </React.Fragment> : null}
                   </p>
+                  <p className='zero-margin'>
+                    {stuccoFinEstimate ? <React.Fragment><span className='child1'> Stucco Finish: ${stuccoFinEstimate.toFixed(2)} </span> {" "} <span className='child2'>(LF: {stuccoFinEstimate})</span>{" "} </React.Fragment> : null}
+                  </p>
+                  <p className='zero-margin'>
+                    {smoothStuccoEstimate ? <React.Fragment><span className='child1'> Smooth Stucco: ${smoothStuccoEstimate.toFixed(2)} </span> {" "} <span className='child2'>(LF: {smoothStuccoEstimate})</span>{" "} </React.Fragment> : null}
+                  </p>
+                  <p className='zero-margin'>
+                    {standardPavers ? <React.Fragment><span className='child1'> Standard Pavers: ${standardPaversEstimate.toFixed(2)} </span> {" "} <span className='child2'>(LF: {standardPavers})</span>{" "} </React.Fragment> : null}
+                  </p>
+                  <p className='zero-margin'>
+                    {travertineEstimate ? <React.Fragment><span className='child1'> Travertine or Tile Floor or Flagstone with Concrete Base: ${travertineEstimate.toFixed(2)} </span> {" "} <span className='child2'>(LF: {travertineEstimate})</span>{" "} </React.Fragment> : null}
+                  </p>
+                  <p className='zero-margin'>
+                    {concretePadTurfEstimate ? <React.Fragment><span className='child1'> Concrete Pad and Turf Ribbons: ${concretePadTurfEstimate.toFixed(2)} </span> {" "} <span className='child2'>(LF: {concretePadTurfEstimate})</span>{" "} </React.Fragment> : null}
+                  </p>
+                  <p className='zero-margin'>
+                    {concreteStepPadEstimate ? <React.Fragment><span className='child1'> Concrete Stepping Pads: ${concreteStepPadEstimate.toFixed(2)} </span> {" "} <span className='child2'>(LF: {concreteStepPadEstimate})</span>{" "} </React.Fragment> : null}
+                  </p>
+                  <p className='zero-margin'>
+                    {trexLPEEstimate ? <React.Fragment><span className='child1'> Trex or LPE: ${trexLPEEstimate.toFixed(2)} </span> {" "} <span className='child2'>(LF: {trexLPEEstimate})</span>{" "} </React.Fragment> : null}
+                  </p>
+
                   <p>Spa Finish: ___________</p>
                 </div>
-                <p>Clean Up: {masonryCleanup ? "TRUE" : "NULL"}</p>
-                <p>Docking: ___________</p>
+                <p>Clean Up: ${masonryCleanup ? masonryCleanup.toFixed(2) : 0}</p>
+                <p>Decking: ${deckingSquareFoot ? deckingSquareFootEstimate.toFixed(2) : 0}</p>
                 <div className='left-inner-container'>
-                  <p>
+                  <p className='zero-margin'>
                     <span className='child1'>
                       {" "}
                       Deck: {deckingType ? deckingType : "NULL"}{" "}
                     </span>{" "}
                     <span className='child2'>(LF_________)</span>{" "}
                   </p>
-                  <p>
+                  <p className='zero-margin'>
                     <span className='child1'> Drains: ________ </span>{" "}
                     <span className='child2'>(LF_________)</span>{" "}
                   </p>
-                  <p>Bonding Wire: {bondingWire ? "TRUE" : "NULL"}</p>
-                  <p>Mastic:{plasterMastic ? "TRUE" : "NULL"}</p>
+                  <p className='zero-margin'>Bonding Wire: ${bondingWire ? bondingWire : 0}</p>
+                  <p className='zero-margin'>Mastic: ${plasterMastic ? plasterMastic : 0}</p>
                 </div>
                 <p>
-                  Plaster: {plasterType ? plasterType : "NULL"} (
-                  {plasterLength ? plasterLength : "NULL"})
+                  Plaster: {plasterType ? plasterType : "NULL"}: ${plasterLength ? plasterLengthEstimate.toFixed(2) : 0}
                 </p>
-                <p>Startup: {plasterStartUp ? "TRUE" : "NULL"}</p>
+                <p>Startup: ${plasterStartUp ? plasterStartUp.toFixed() : 0}</p>
               </div>
 
               <div className='successWrapper-information-right-container'>
                 <h5>Pool/Spa Information</h5>
                 <div className='right-inner-container'>
-                  <p>Depth: {poolAveDepth}</p>
-                  <p>
-                    Length / Width: {poolLength} / {poolWidth}
-                  </p>
-                  <p>Area: {poolLength * poolWidth}</p>
-                  <p>Perimeter: {2 * poolLength + 2 * poolWidth}</p>
-                  <p>-----------</p>
-                  <p>Area: {spaLength * spaWidth}</p>
-                  <p>Perimeter: {2 * spaLength + 2 * spaWidth}</p>
-                  <p>-----------</p>
-                  <p>Area: {spaLength * spaWidth + poolLength * poolWidth}</p>
-                  <p>
-                    Perimeter:{" "}
-                    {2 * spaLength +
-                      2 * spaWidth +
-                      (2 * poolLength + 2 * poolWidth)}
-                  </p>
+                  <p className="zero-margin">Depth: {poolAveDepth} / {spaAveDepth}</p>
+                  <p>Length / Width: {poolLength} / {poolWidth}</p>
+                  <p className="zero-margin">Pool Area: {poolArea}</p>
+                  <p>Perimeter: {poolPerimeter}</p>
+                  <p className="zero-margin">Spa Area: {spaArea}</p>
+                  <p>Spa Perimeter: {spaPerimeter}</p>
+                  <p className="zero-margin">Total Area: {parseFloat(poolArea) + parseFloat(spaArea)}</p>
+                  <p>Total Perimeter: {parseFloat(spaPerimeter) + parseFloat(poolPerimeter)}</p>
                 </div>
                 <p className='text-underline font-bold'>Extras</p>
                 <ul>
-                  {manualIgnitionFireBowl ? (
-                    <li>{manualIgnitionFireBowl} </li>
-                  ) : null}
-                  {electronicIgnitionFireBowl ? (
-                    <li>{electronicIgnitionFireBowl} </li>
-                  ) : null}
-                  {sheerDecent ? <li>{sheerDecent} </li> : null}
-                  {sheerDecentPumps ? <li>{sheerDecentPumps} </li> : null}
-                  {sheerDecentRuns ? <li>{sheerDecentRuns} </li> : null}
-                  {barbecues ? <li>{barbecues} </li> : null}
+                  {manualIgnitionFireBowl ? (<li>Manual Ignition Fire Bowl: ${manualIgnitionFireBowlEstimate.toFixed(2)} </li>) : null}
+                  {electronicIgnitionFireBowl ? (<li>Electronic Ignition Fire Bowl: ${electronicIgnitionFireBowlEstimate.toFixed(2)} </li>) : null}
+                  {sheerDecent ? <li>Sheer Decent: ${sheerDecentEstimate.toFixed(2)} </li> : null}
+                  {sheerDecentPumps ? <li>Sheer Decent - Pumps: ${sheerDecentPumpsEstimate.toFixed(2)} </li> : null}
+                  {sheerDecentRuns ? <li>Sheer Decent - Runs: ${sheerDecentRunsEstimate.toFixed(2)} </li> : null}
+                  {barbecues ? <li>Barbecues: ${barbecuesEstimate.toFixed(2)} </li> : null}
                 </ul>
 
                 <Totals allData={data} />

@@ -26,9 +26,12 @@ export default class MainForm extends Component {
       spaLength: undefined,
       spaWidth: undefined,
       spaAveDepth: undefined,
+      poolPerimeter: undefined,
+      spaPerimeter: undefined,
       projectManager: false,
       plans: false,
       engineering: false,
+      equipment: undefined,
       excavationMainLocation: undefined,
       excavationMainSquareFoot: undefined,
       excavationZone: undefined,
@@ -121,6 +124,8 @@ export default class MainForm extends Component {
   }
 
   render() {
+    console.log(this.state)
+    console.log(this.props)
     return (
       <div className='mainForm-wrapper'>
         {this.state.displayReview ? <Review /> : null}
@@ -427,6 +432,16 @@ export default class MainForm extends Component {
                   name='excavationSteelSquareFoot'
                   id='excavationSteelSquareFoot'
                   placeholder='Square Footage'
+                  onChange={this.handleInputChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for='equipment'>Equipment</Label>
+                <Input
+                  type='number'
+                  name='equipment'
+                  id='equipment'
+                  placeholder='Total Amount'
                   onChange={this.handleInputChange}
                 />
               </FormGroup>

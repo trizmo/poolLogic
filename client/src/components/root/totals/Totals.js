@@ -25,6 +25,9 @@ export default class Totals extends Component {
       spaWidth: 0,
       spaAveDepth: 0,
 
+      poolArea: 0,
+      spaArea: 0,
+
       generalTotal: 0,
 
       // EXCAVATION
@@ -170,12 +173,32 @@ export default class Totals extends Component {
       props.allData.spaWidth ||
       props.allData.spaAveDepth
     ) {
-      update.poolLength = parseInt(props.allData.poolLength);
-      update.poolWidth = parseInt(props.allData.poolWidth);
-      update.poolAveDepth = parseInt(props.allData.poolAveDepth);
-      update.spaLength = parseInt(props.allData.spaLength);
-      update.spaWidth = parseInt(props.allData.spaWidth);
-      update.spaAveDepth = parseInt(props.allData.spaAveDepth);
+      update.poolLength = parseFloat(props.allData.poolLength);
+      update.poolWidth = parseFloat(props.allData.poolWidth);
+      update.poolAveDepth = parseFloat(props.allData.poolAveDepth);
+      update.spaLength = parseFloat(props.allData.spaLength);
+      update.spaWidth = parseFloat(props.allData.spaWidth);
+      update.spaAveDepth = parseFloat(props.allData.spaAveDepth);
+    }
+
+    if (props.allData.poolArea) {
+      update.poolArea = props.allData.poolArea
+    }
+
+    if (props.allData.spaArea) {
+      update.spaArea = props.allData.spaArea
+    }
+
+    if (props.allData.poolPerimeter) {
+      update.poolPerimeter = props.allData.poolPerimeter
+    }
+
+    if (props.allData.spaPerimeter) {
+      update.spaPerimeter = props.allData.spaPerimeter
+    }
+
+    if (props.allData.equipment) {
+      update.equipment = props.allData.equipment;
     }
 
     // EXCAVATION
@@ -186,7 +209,7 @@ export default class Totals extends Component {
     ) {
       if (props.allData.excavationMainLocation === "63access") {
         if (props.allData.excavationMainSquareFoot < 400) {
-          console.log(props.allData.excavationMainSquareFoot);
+          // console.log(props.allData.excavationMainSquareFoot);
           update.excavtionEstimate = 1500;
           update.excavationMainLocation = props.allData.excavationMainLocation;
           update.excavationMainSquareFoot = parseInt(
@@ -201,7 +224,7 @@ export default class Totals extends Component {
         }
       } else if (props.allData.excavationMainLocation === "mid-size") {
         if (props.allData.excavationMainSquareFoot < 400) {
-          console.log(props.allData.excavationMainSquareFoot);
+          // console.log(props.allData.excavationMainSquareFoot);
           update.excavtionEstimate = 1500;
         } else {
           update.excavtionEstimate = 8 * props.allData.excavationMainSquareFoot;
@@ -212,7 +235,7 @@ export default class Totals extends Component {
         }
       } else if (props.allData.excavationMainLocation === "mini-access") {
         if (props.allData.excavationMainSquareFoot < 400) {
-          console.log(props.allData.excavationMainSquareFoot);
+          // console.log(props.allData.excavationMainSquareFoot);
           update.excavtionEstimate = 1500;
         } else {
           update.excavtionEstimate =
@@ -231,16 +254,16 @@ export default class Totals extends Component {
 
     if (props.allData.excavationZone === "riversideCounty") {
       update.excavationZone = 1000;
-      update.excavationZone = "riversideCounty";
+      // update.excavationZone = "riversideCounty";
     } else if (props.allData.excavationZone === "inlandEmpire") {
       update.excavationZone = 1600;
-      update.excavationZone = "inlandEmpire";
+      // update.excavationZone = "inlandEmpire";
     } else if (props.allData.excavationZone === "west605") {
       update.excavationZone = 2000;
-      update.excavationZone = "west605";
+      // update.excavationZone = "west605";
     } else if (props.allData.excavationZone === "westLA") {
       update.excavationZone = 2500;
-      update.excavationZone = "westLA";
+      // update.excavationZone = "westLA";
     }
 
     if (props.allData.excavationDemo) {
@@ -321,6 +344,8 @@ export default class Totals extends Component {
         update.excavationSteelSquareFootEstimate = 0;
       }
     }
+
+
 
     // PLUMBING AND ELECTRICAL
     if (props.allData.plumbingType && props.allData.plumbingLength) {
@@ -423,8 +448,8 @@ export default class Totals extends Component {
 
 
       let cubicYards = ((perimeter * aveDepth) + surfaceArea) / 27
-      console.log("Cubic yards: " + cubicYards)
-      console.log("location cost: " + locationCost)
+      // console.log("Cubic yards: " + cubicYards)
+      // console.log("location cost: " + locationCost)
 
       if (cubicYards < 10) {
         update.shotcreteEstimate = 3500;
@@ -434,12 +459,12 @@ export default class Totals extends Component {
         update.shotcreteCubicYards = cubicYards;
       }
 
-      console.log("shotcrete for pool only:");
-      console.log("location cost: " + locationCost);
-      console.log("perimeter: " + perimeter);
-      console.log("aveDepth: " + aveDepth);
-      console.log("surfaceArea: " + surfaceArea);
-      console.log("shotcreteEstimate: " + update.shotcreteEstimate);
+      // console.log("shotcrete for pool only:");
+      // console.log("location cost: " + locationCost);
+      // console.log("perimeter: " + perimeter);
+      // console.log("aveDepth: " + aveDepth);
+      // console.log("surfaceArea: " + surfaceArea);
+      // console.log("shotcreteEstimate: " + update.shotcreteEstimate);
     }
 
     // POOL AND SPA
@@ -474,12 +499,12 @@ export default class Totals extends Component {
         update.shotcreteCubicYards = cubicYards;
       }
 
-      console.log("shotcrete for pool and spa:");
-      console.log("location cost: " + locationCost);
-      console.log("perimeter: " + perimeter);
-      console.log("aveDepth: " + aveDepth);
-      console.log("surfaceArea: " + surfaceArea);
-      console.log("shotcreteEstimate: " + update.shotcreteEstimate);
+      // console.log("shotcrete for pool and spa:");
+      // console.log("location cost: " + locationCost);
+      // console.log("perimeter: " + perimeter);
+      // console.log("aveDepth: " + aveDepth);
+      // console.log("surfaceArea: " + surfaceArea);
+      // console.log("shotcreteEstimate: " + update.shotcreteEstimate);
     }
 
     // MASONRY
@@ -716,7 +741,7 @@ export default class Totals extends Component {
     // GENERAL
 
     let general = this.state.plans + this.state.engineering;
-    console.log("general", general);
+    // console.log("general", general);
     if (general !== this.state.generalTotal) {
       this.setState({
         generalTotal: general,

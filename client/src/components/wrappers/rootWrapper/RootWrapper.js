@@ -5,7 +5,7 @@ import Header from '../../root/header/Header'
 import MainForm from '../../root/mainForm/MainForm'
 
 export default function RootWrapper(props) {
-  console.log(props)
+  // console.log(props)
   return (
     <div className="rootWrapper-wrapper">
       <Header />
